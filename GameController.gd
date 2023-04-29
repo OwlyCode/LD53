@@ -2,10 +2,13 @@ extends Node2D
 
 var levels = [
 	preload("res://levels/level_1.tscn"),
+	preload("res://levels/level_2.tscn"),
+	preload("res://levels/level_3.tscn"),
+	preload("res://levels/level_10.tscn"),
 	preload("res://levels/level_x.tscn")
 ]
 
-var current_level = 0
+var current_level = 3
 var inited = false
 
 # Called when the node enters the scene tree for the first time.

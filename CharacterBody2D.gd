@@ -115,7 +115,7 @@ func _physics_process(delta):
 	elif Input.is_action_pressed("slide") and is_on_floor_only() and not ended:
 		if  (0.6 < get_floor_angle() and get_floor_angle() < 0.8) or (-0.8 < get_floor_angle() and get_floor_angle() < -0.6):
 			sliding = true
-			velocity.y = SPEED * 1.75
+			velocity.y = SPEED * 1.5
 
 	if is_on_floor():
 		was_on_floor = 0.0

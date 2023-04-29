@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://b201qcid7rcgl"]
+
+[ext_resource type="Script" path="res://Goal.gd" id="1_lakxt"]
+[ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="2_0x5k1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ribpl"]
+atlas = ExtResource("2_0x5k1")
+region = Rect2(64, 48, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aonpi"]
+size = Vector2(32, 5)
+
+[sub_resource type="Gradient" id="Gradient_oxvvq"]
+colors = PackedColorArray(0, 1, 0, 1, 0.117647, 1, 0, 0.278431)
+
+[sub_resource type="Gradient" id="Gradient_v7f3n"]
+offsets = PackedFloat32Array(0, 0.251064, 0.493617, 0.744681, 1)
+colors = PackedColorArray(1, 0, 0.927743, 1, 1, 0, 0.0666666, 1, 0, 1, 0, 1, 1, 0.919283, 0, 1, 0, 0.0300589, 1, 1)
+
+[node name="Goal" type="Node2D"]
+position = Vector2(752, 338)
+script = ExtResource("1_lakxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+texture = SubResource("AtlasTexture_ribpl")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_aonpi")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -1)
+amount = 64
+lifetime = 5.0
+preprocess = 5.0
+emission_shape = 1
+emission_sphere_radius = 16.0
+gravity = Vector2(0, -25)
+tangential_accel_min = -10.0
+tangential_accel_max = 10.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+color = Color(0.0392157, 1, 0.113725, 0.615686)
+color_ramp = SubResource("Gradient_oxvvq")
+
+[node name="GoalReached" type="CPUParticles2D" parent="."]
+z_index = 5
+position = Vector2(0, 5)
+rotation = -1.5708
+emitting = false
+amount = 64
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.92
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, 0)
+gravity = Vector2(0, 240)
+initial_velocity_min = 250.0
+initial_velocity_max = 250.0
+scale_amount_min = 3.0
+scale_amount_max = 5.0
+color_initial_ramp = SubResource("Gradient_v7f3n")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

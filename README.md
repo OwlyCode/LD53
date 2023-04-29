@@ -1,0 +1,14 @@
+TODO
+- Restart on death (parcel or character out of screen)
+- Next level when win
+- UI
+    - show controls
+    - show press R to restart
+    - timer
+    - stars
+- level selection
+    - display stars and game state
+- sounds integration
+- making levels
+- dog
+- camera

@@ -15,9 +15,18 @@ var initial_shoot_power = 200.0
 var parcel = preload("res://prefabs/parcel.tscn");
 var load_speed = 250.0
 var has_parcel = true
+var ended = false
 
 func _ready():
 	$AnimatedSprite2D.play()
+
+func reach_goal():
+	if has_parcel:
+		ended = true
+
+		return true
+
+	return false
 
 func update_trajectory(delta, initial_velocity):
 	var line = $Line2D
@@ -45,18 +54,16 @@ func _physics_process(delta):
 	Engine.time_scale = 1.0
 
 	if Input.is_action_just_pressed("restart"):
-		for x in get_tree().root.get_children():
-			x.queue_free()
+		get_node("/root/Game").restart()
 
-		get_tree().reload_current_scene()
 
-	if has_parcel and not is_on_floor():
+	if has_parcel and not is_on_floor() and not ended:
 		if Input.is_action_pressed("shoot"):
 			Engine.time_scale = 0.2
 
-	if has_parcel and Input.is_action_pressed("shoot"):
+	if has_parcel and not ended and Input.is_action_pressed("shoot"):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
-		update_trajectory(0.005, 0*get_real_velocity() + shoot_direction * shoot_power)
+		update_trajectory(0.005, shoot_direction * shoot_power)
 		$Line2D.visible = true
 		shoot_power = get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
 		shoot_power = clampf(shoot_power, 0 , 800)
@@ -69,15 +76,16 @@ func _physics_process(delta):
 
 		x.transform = transform
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
-		x.linear_velocity = 0*get_real_velocity() + shoot_direction * shoot_power
+		x.linear_velocity = shoot_direction * shoot_power
 		x.angular_velocity = shoot_power / 10.0
+		velocity += - shoot_direction * 350.0
 
 	if not is_on_floor():
 		sliding = false
 
 	if sliding:
 		velocity.x = get_real_velocity().x
-	else:
+	elif not ended:
 		var direction = Input.get_axis("left", "right")
 		if direction:
 			slide_jump = false
@@ -98,13 +106,13 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and was_on_floor < 0.15:
+	if Input.is_action_just_pressed("jump") and was_on_floor < 0.15 and not ended:
 		velocity.y = JUMP_VELOCITY
 		if sliding:
 			slide_jump = true
 
 		sliding = false
-	elif Input.is_action_pressed("slide") and is_on_floor_only():
+	elif Input.is_action_pressed("slide") and is_on_floor_only() and not ended:
 		if  (0.6 < get_floor_angle() and get_floor_angle() < 0.8) or (-0.8 < get_floor_angle() and get_floor_angle() < -0.6):
 			sliding = true
 			velocity.y = SPEED * 1.75
@@ -136,6 +144,10 @@ func _physics_process(delta):
 			else:
 				$AnimatedSprite2D.animation = "slide_left"
 				$CollisionShape2D.rotation_degrees = 45
+
+
+	if ended:
+		velocity = Vector2.ZERO
 
 	move_and_slide()
 

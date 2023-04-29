@@ -20,7 +20,7 @@ func _ready():
 
 func update_trajectory(delta, initial_velocity):
 	var line = $Line2D
-	var max_points = 400
+	var max_points = 512
 
 	line.clear_points()
 	var pos = Vector2.ZERO
@@ -49,9 +49,10 @@ func _physics_process(delta):
 
 	if Input.is_action_pressed("shoot"):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
-		update_trajectory(0.005, get_real_velocity() + shoot_direction * shoot_power)
+		update_trajectory(0.005, 0*get_real_velocity() + shoot_direction * shoot_power)
 		$Line2D.visible = true
 		shoot_power = get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
+		shoot_power = clampf(shoot_power, 0 , 800)
 
 	if Input.is_action_just_released("shoot"):
 		$Line2D.visible = false
@@ -60,13 +61,8 @@ func _physics_process(delta):
 
 		x.transform = transform
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
-		x.linear_velocity = get_real_velocity() + shoot_direction * shoot_power
+		x.linear_velocity = 0*get_real_velocity() + shoot_direction * shoot_power
 		x.angular_velocity = shoot_power / 10.0
-
-
-	print((1 / Engine.time_scale))
-
-
 
 	if not is_on_floor():
 		sliding = false

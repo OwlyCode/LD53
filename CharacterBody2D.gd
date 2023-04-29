@@ -47,14 +47,11 @@ func _physics_process(delta):
 		if Input.is_action_pressed("shoot"):
 			Engine.time_scale = 0.05
 
-	if Input.is_action_just_pressed("shoot"):
-		shoot_power = initial_shoot_power
-
 	if Input.is_action_pressed("shoot"):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
 		update_trajectory(0.005, get_real_velocity() + shoot_direction * shoot_power)
 		$Line2D.visible = true
-		shoot_power += load_speed * delta * (0.5 / Engine.time_scale)
+		shoot_power = get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
 
 	if Input.is_action_just_released("shoot"):
 		$Line2D.visible = false
@@ -64,7 +61,7 @@ func _physics_process(delta):
 		x.transform = transform
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
 		x.linear_velocity = get_real_velocity() + shoot_direction * shoot_power
-		#x.angular_velocity = shoot_power / 10.0
+		x.angular_velocity = shoot_power / 10.0
 
 
 	print((1 / Engine.time_scale))

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://s180r8hyt7wo"]
+[gd_scene load_steps=18 format=3 uid="uid://s180r8hyt7wo"]
 
 [ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="1_5rgok"]
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="2_iqs5i"]
@@ -18,14 +18,14 @@ texture_region_size = Vector2i(32, 32)
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -14, 16, 16, -16, 16, -16, -14)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
 0:2/0 = 0
 0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:2/0/physics_layer_0/angular_velocity = 0.0
-0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, 16, -16, 16, -16, -16)
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(14, 16, -16, 16, -16, -14.5)
 
 [sub_resource type="TileSet" id="TileSet_wg86w"]
 tile_size = Vector2i(32, 32)
@@ -62,6 +62,14 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_iqpxl"]
 atlas = ExtResource("1_5rgok")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qs4c"]
+atlas = ExtResource("1_5rgok")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn2po"]
+atlas = ExtResource("1_5rgok")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6vr1i"]
 atlas = ExtResource("1_5rgok")
@@ -114,7 +122,13 @@ animations = [{
 "name": &"slide_right",
 "speed": 12.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qs4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn2po")
+}],
 "loop": true,
 "name": &"walk_left",
 "speed": 5.0
@@ -151,5 +165,4 @@ shape = SubResource("CapsuleShape2D_c77hw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_ugsvq")
-animation = &"slide_right"
-frame_progress = 0.609518
+animation = &"walk_left"

@@ -52,7 +52,7 @@ func _physics_process(delta):
 
 	if has_parcel and not is_on_floor():
 		if Input.is_action_pressed("shoot"):
-			Engine.time_scale = 0.05
+			Engine.time_scale = 0.2
 
 	if has_parcel and Input.is_action_pressed("shoot"):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -138,3 +138,9 @@ func _physics_process(delta):
 				$CollisionShape2D.rotation_degrees = 45
 
 	move_and_slide()
+
+
+	if sliding:
+		$CPUParticles2D.emitting = true
+	else:
+		$CPUParticles2D.emitting = false

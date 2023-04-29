@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmo3fv31nu63"]
+[gd_scene load_steps=7 format=3 uid="uid://cmo3fv31nu63"]
 
 [ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="1_52wky"]
+[ext_resource type="Script" path="res://prefabs/parcel.gd" id="1_spn4v"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rj2a"]
 friction = 0.35
@@ -13,16 +14,28 @@ region = Rect2(71, 43, 18, 11)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na307"]
 size = Vector2(18, 11)
 
-[node name="Parcel" type="RigidBody2D"]
+[sub_resource type="Gradient" id="Gradient_v55op"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="Parcel" type="RigidBody2D" groups=["parcel"]]
 position = Vector2(432, 185)
 collision_layer = 2
 collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_5rj2a")
 gravity_scale = 0.5
 continuous_cd = 2
+script = ExtResource("1_spn4v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_wicxx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_na307")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 80
+emission_shape = 3
+emission_rect_extents = Vector2(6, 6)
+gravity = Vector2(0, 0)
+scale_amount_max = 4.0
+color_ramp = SubResource("Gradient_v55op")

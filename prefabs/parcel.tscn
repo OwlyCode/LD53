@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cmo3fv31nu63"]
+
+[ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="1_52wky"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rj2a"]
+friction = 0.35
+bounce = 0.75
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wicxx"]
+atlas = ExtResource("1_52wky")
+region = Rect2(71, 43, 18, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na307"]
+size = Vector2(18, 11)
+
+[node name="Parcel" type="RigidBody2D"]
+position = Vector2(432, 185)
+collision_layer = 2
+collision_mask = 4
+mass = 0.46
+physics_material_override = SubResource("PhysicsMaterial_5rj2a")
+gravity_scale = 0.5
+continuous_cd = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_wicxx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_na307")

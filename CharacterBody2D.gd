@@ -9,12 +9,36 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor = 0.0
 var sliding = false
 var slide_jump = false
+var shoot_power = 500.0
+var parcel = preload("res://prefabs/parcel.tscn");
 
 func _ready():
 	$AnimatedSprite2D.play()
 
 func _physics_process(delta):
+	Engine.time_scale = 1.0
+
+
+	if Input.is_action_pressed("shoot"):
+		pass
+
+	if Input.is_action_just_released("shoot"):
+		var x = parcel.instantiate();
+		get_tree().root.add_child(x)
+
+		x.transform = transform
+		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
+
+		x.linear_velocity = get_real_velocity() + shoot_direction * shoot_power
+		x.angular_velocity = shoot_power / 10.0
+
+
+
+
 	if not is_on_floor():
+		if Input.is_action_pressed("shoot"):
+			Engine.time_scale = 0.15
+
 		sliding = false
 
 	if sliding:
@@ -60,8 +84,6 @@ func _physics_process(delta):
 
 	if sliding and last_motion.y <= 0.0:
 		sliding = false
-
-	print(is_on_floor())
 
 	if not is_on_floor():
 		$AnimatedSprite2D.animation = "jump"

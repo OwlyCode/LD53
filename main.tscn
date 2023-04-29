@@ -186,3 +186,7 @@ shape = SubResource("CapsuleShape2D_c77hw")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_ugsvq")
 animation = &"walk_left"
+
+[node name="Line2D" type="Line2D" parent="CharacterBody2D"]
+width = 3.0
+default_color = Color(0.141176, 1, 0.203922, 1)

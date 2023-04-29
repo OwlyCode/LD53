@@ -17,7 +17,6 @@ size = Vector2(18, 11)
 position = Vector2(432, 185)
 collision_layer = 2
 collision_mask = 4
-mass = 0.46
 physics_material_override = SubResource("PhysicsMaterial_5rj2a")
 gravity_scale = 0.5
 continuous_cd = 2

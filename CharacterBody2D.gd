@@ -14,6 +14,7 @@ var shoot_power = 200.0
 var initial_shoot_power = 200.0
 var parcel = preload("res://prefabs/parcel.tscn");
 var load_speed = 250.0
+var has_parcel = true
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -43,18 +44,25 @@ func update_trajectory(delta, initial_velocity):
 func _physics_process(delta):
 	Engine.time_scale = 1.0
 
-	if not is_on_floor():
+	if Input.is_action_just_pressed("restart"):
+		for x in get_tree().root.get_children():
+			x.queue_free()
+
+		get_tree().reload_current_scene()
+
+	if has_parcel and not is_on_floor():
 		if Input.is_action_pressed("shoot"):
 			Engine.time_scale = 0.05
 
-	if Input.is_action_pressed("shoot"):
+	if has_parcel and Input.is_action_pressed("shoot"):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
 		update_trajectory(0.005, 0*get_real_velocity() + shoot_direction * shoot_power)
 		$Line2D.visible = true
 		shoot_power = get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
 		shoot_power = clampf(shoot_power, 0 , 800)
 
-	if Input.is_action_just_released("shoot"):
+	if has_parcel and Input.is_action_just_released("shoot"):
+		has_parcel = false
 		$Line2D.visible = false
 		var x = parcel.instantiate();
 		get_tree().root.add_child(x)

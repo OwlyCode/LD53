@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://da33kxo3iwegf"]
+[gd_scene load_steps=28 format=3 uid="uid://da33kxo3iwegf"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1l7os"]
 [ext_resource type="Texture2D" uid="uid://r6k62ieyusc4" path="res://art/character.png" id="2_wrm1m"]
@@ -228,6 +228,10 @@ point_count = 2
 offsets = PackedFloat32Array(0, 0.391489, 1)
 colors = PackedColorArray(0.7, 0.7, 0.7, 1, 0.666667, 0.666667, 0.666667, 1, 1, 1, 1, 0)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aj0ov"]
+radius = 13.0
+height = 36.0
+
 [node name="Postman" type="CharacterBody2D"]
 position = Vector2(292, 227)
 collision_mask = 5
@@ -260,3 +264,13 @@ initial_velocity_max = 1.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_8hfcw")
 color_ramp = SubResource("Gradient_o341e")
+
+[node name="PickupZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_aj0ov")
+
+[connection signal="body_entered" from="PickupZone" to="." method="_on_pickup_zone_body_entered"]

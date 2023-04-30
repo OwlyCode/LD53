@@ -170,4 +170,9 @@ func _physics_process(delta):
 func switch_animation(anim):
 	if $AnimatedSprite2D.animation != anim:
 		$AnimatedSprite2D.play(anim)
-		print(anim)
+
+
+func _on_pickup_zone_body_entered(body):
+	if body.immune_time <= 0:
+		has_parcel = true
+		body.on_catch()

@@ -1,17 +1,31 @@
 extends RigidBody2D
 
 var reached = false
+var caught = false
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var immune_time = 0.5
+var decay_time = 5.0
 
+func _process(delta):
+	immune_time -= delta
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	$CPUParticles2D.emitting = linear_velocity.length() > 100.0
+	immune_time = clampf(immune_time, -1, 0.5)
+
+	$CPUParticles2D.emitting = not caught && linear_velocity.length() > 100.0
+
+	if caught:
+		decay_time -= delta
+
+	if decay_time < 0.0:
+		queue_free()
 
 func _physics_process(_delta):
 	if reached:
 		rotation_degrees = 0
 		linear_velocity = Vector2.ZERO
+	if caught:
+		freeze = true
+
+func on_catch():
+	$Sprite2D.visible = false
+	caught = true

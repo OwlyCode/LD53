@@ -2,8 +2,6 @@ TODO
 - UI
     - audio control
 
-
-- dog
 - keep the loop running between level
 
 - level selection
@@ -11,6 +9,7 @@ TODO
 
 - making levels
 
+- Dog time penalty ?
 - Restart on death (parcel or character out of screen) ?
 - impact on ground (player / parcel) ?
 

@@ -142,7 +142,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4k6w"]
-size = Vector2(239, 287)
+size = Vector2(157, 287)
 
 [sub_resource type="Curve" id="Curve_iceds"]
 max_value = 5.0
@@ -176,7 +176,7 @@ collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-position = Vector2(-130.5, 0.5)
+position = Vector2(-89.5, 0.5)
 shape = SubResource("RectangleShape2D_d4k6w")
 
 [node name="RunningParticles" type="CPUParticles2D" parent="."]
@@ -193,6 +193,7 @@ scale_amount_curve = SubResource("Curve_iceds")
 color_ramp = SubResource("Gradient_rx20a")
 
 [node name="BiteZone" type="Area2D" parent="."]
+position = Vector2(7, 0)
 collision_layer = 0
 collision_mask = 3
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://finroad8pc5o"]
+[gd_scene load_steps=7 format=3 uid="uid://finroad8pc5o"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_ysf0i"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_70dv6"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Tutorial.gd" id="4_caal0"]
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_aanwb"]
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_vrvoy"]
-[ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="7_djlwo"]
 
 [node name="Level1" type="Node"]
 
@@ -45,7 +44,3 @@ script = ExtResource("4_caal0")
 z_index = -1
 position = Vector2(448, 222)
 texture = ExtResource("6_vrvoy")
-
-[node name="Dog" parent="." instance=ExtResource("7_djlwo")]
-position = Vector2(581, 338)
-patrol_distance = 100.0

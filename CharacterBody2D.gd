@@ -57,12 +57,6 @@ func update_trajectory(delta, initial_velocity):
 func _physics_process(delta):
 	var prefix = "carrying_"
 
-	if moved:
-		$MusicLoop.volume_db = clampf($MusicLoop.volume_db + delta * 100.0, -80, 0)
-
-	if $MusicLoop.volume_db == 0:
-		$IdleLoop.volume_db = -80
-
 	if not has_parcel:
 		prefix = ""
 
@@ -84,7 +78,6 @@ func _physics_process(delta):
 		pitch_scale = clampf(pitch_scale + delta * 1.7, 0.25, 1.0)
 
 	$MusicLoop.pitch_scale = pitch_scale
-	$IdleLoop.pitch_scale = pitch_scale
 
 	if has_parcel and not ended and Input.is_action_pressed("shoot") and not shoot_canceled:
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -112,7 +105,7 @@ func _physics_process(delta):
 		get_tree().root.add_child(x)
 		on_first_move()
 		aiming = false
-
+		get_tree().call_group("dog", "switch_target", x)
 
 		x.transform = transform
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -212,6 +205,7 @@ func switch_animation(anim):
 
 func _on_pickup_zone_body_entered(body):
 	if body.immune_time <= 0 and not ended and body.pickable:
+		get_tree().call_group("dog", "switch_target", self)
 		has_parcel = true
 		body.on_catch()
 		$Pickup.play()

@@ -9,6 +9,7 @@ func _on_area_2d_body_entered(body:Node2D):
 		ending = true
 		get_node("../../GenericUI").end_level()
 		$GoalSound.play()
+		get_tree().call_group("dog", "on_end_level")
 
 	if body.has_method("reach_goal"):
 		if body.reach_goal() and not ending:
@@ -16,3 +17,4 @@ func _on_area_2d_body_entered(body:Node2D):
 			ending = true
 			get_node("../../GenericUI").end_level()
 			$GoalSound.play()
+			get_tree().call_group("dog", "on_end_level")

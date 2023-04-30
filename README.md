@@ -2,7 +2,9 @@ TODO
 - UI
     - audio control
 
+
 - dog
+- keep the loop running between level
 
 - level selection
     - display stars and game state

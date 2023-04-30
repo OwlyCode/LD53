@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtsnp7klunf85"]
+[gd_scene load_steps=22 format=3 uid="uid://dtsnp7klunf85"]
 
 [ext_resource type="Texture2D" uid="uid://dqimlhwotd006" path="res://art/dog.png" id="1_lfwhr"]
 [ext_resource type="Script" path="res://prefabs/dog.gd" id="1_lpdk5"]
@@ -6,6 +6,14 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6pfm3"]
 radius = 15.0
 height = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0wei"]
+atlas = ExtResource("1_lfwhr")
+region = Rect2(384, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67amj"]
+atlas = ExtResource("1_lfwhr")
+region = Rect2(432, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rgyu0"]
 atlas = ExtResource("1_lfwhr")
@@ -22,6 +30,10 @@ region = Rect2(240, 32, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3s21"]
 atlas = ExtResource("1_lfwhr")
 region = Rect2(336, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tymg4"]
+atlas = ExtResource("1_lfwhr")
+region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqm3n"]
 atlas = ExtResource("1_lfwhr")
@@ -51,6 +63,17 @@ region = Rect2(48, 32, 48, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_u0wei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67amj")
+}],
+"loop": true,
+"name": &"caught_parcel",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_rgyu0")
 }, {
 "duration": 1.0,
@@ -69,6 +92,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"charge_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tymg4")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -113,7 +144,19 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4k6w"]
 size = Vector2(239, 287)
 
-[node name="Dog" type="CharacterBody2D"]
+[sub_resource type="Curve" id="Curve_iceds"]
+max_value = 5.0
+_data = [Vector2(0, 0.536313), 0.0, 0.0, 0, 0, Vector2(0.980392, 2.31844), 1.4, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rx20a"]
+offsets = PackedFloat32Array(0, 0.993266)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.309804)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bx4yt"]
+radius = 13.0384
+
+[node name="Dog" type="CharacterBody2D" groups=["dog"]]
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_lpdk5")
@@ -125,8 +168,8 @@ shape = SubResource("CapsuleShape2D_6pfm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ffsnu")
-animation = &"walk_left"
-frame_progress = 0.810302
+animation = &"caught_parcel"
+frame_progress = 0.275881
 
 [node name="DetectionZone" type="Area2D" parent="."]
 collision_layer = 0
@@ -136,4 +179,26 @@ collision_mask = 3
 position = Vector2(-130.5, 0.5)
 shape = SubResource("RectangleShape2D_d4k6w")
 
+[node name="RunningParticles" type="CPUParticles2D" parent="."]
+position = Vector2(1, 16)
+amount = 16
+lifetime = 0.6
+speed_scale = 2.0
+emission_shape = 3
+emission_rect_extents = Vector2(10, 1)
+gravity = Vector2(0, -45)
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_iceds")
+color_ramp = SubResource("Gradient_rx20a")
+
+[node name="BiteZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BiteZone"]
+position = Vector2(-12, 0)
+shape = SubResource("CircleShape2D_bx4yt")
+
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
+[connection signal="body_entered" from="BiteZone" to="." method="_on_bite_zone_body_entered"]

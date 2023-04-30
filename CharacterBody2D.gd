@@ -16,6 +16,9 @@ var parcel = preload("res://prefabs/parcel.tscn");
 var load_speed = 250.0
 var has_parcel = true
 var ended = false
+var moved = false
+var pitch_scale = 1.0
+var aiming = false
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -51,8 +54,13 @@ func update_trajectory(delta, initial_velocity):
 
 
 func _physics_process(delta):
-
 	var prefix = "carrying_"
+
+	if moved:
+		$MusicLoop.volume_db = clampf($MusicLoop.volume_db + delta * 100.0, -80, 0)
+
+	if $MusicLoop.volume_db == 0:
+		$IdleLoop.volume_db = -80
 
 	if not has_parcel:
 		prefix = ""
@@ -62,10 +70,20 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("restart"):
 		get_node("/root/Game").restart()
 
+	var pitching = false
 
 	if has_parcel and not is_on_floor() and not ended:
 		if Input.is_action_pressed("shoot"):
+			pitch_scale = clampf(pitch_scale - delta * 1.7, 0.25, 1.0)
 			Engine.time_scale = 0.2
+			pitching = true
+
+
+	if not pitching:
+		pitch_scale = clampf(pitch_scale + delta * 1.7, 0.25, 1.0)
+
+	$MusicLoop.pitch_scale = pitch_scale
+	$IdleLoop.pitch_scale = pitch_scale
 
 	if has_parcel and not ended and Input.is_action_pressed("shoot"):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -73,12 +91,17 @@ func _physics_process(delta):
 		$Line2D.visible = true
 		shoot_power = get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
 		shoot_power = clampf(shoot_power, 0 , 800)
+		on_first_move()
+		aiming = true
 
-	if has_parcel and Input.is_action_just_released("shoot"):
+	if has_parcel and Input.is_action_just_released("shoot") and aiming:
 		has_parcel = false
 		$Line2D.visible = false
 		var x = parcel.instantiate();
 		get_tree().root.add_child(x)
+		on_first_move()
+		aiming = false
+
 
 		x.transform = transform
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -95,6 +118,7 @@ func _physics_process(delta):
 		var direction = Input.get_axis("left", "right")
 		if direction:
 			slide_jump = false
+			on_first_move()
 
 			if abs(get_real_velocity().x) > abs(direction * SPEED) and sign(get_real_velocity().x) == sign(direction) and not is_on_floor():
 				velocity.x = get_real_velocity().x
@@ -113,12 +137,14 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and was_on_floor < 0.15 and not ended:
+		on_first_move()
 		velocity.y = JUMP_VELOCITY
 		if sliding:
 			slide_jump = true
 
 		sliding = false
 	elif Input.is_action_pressed("slide") and is_on_floor_only() and not ended:
+		on_first_move()
 		if  (0.6 < get_floor_angle() and get_floor_angle() < 0.8) or (-0.8 < get_floor_angle() and get_floor_angle() < -0.6):
 			sliding = true
 			velocity.y = SPEED * 1.5
@@ -176,3 +202,9 @@ func _on_pickup_zone_body_entered(body):
 	if body.immune_time <= 0 and not ended:
 		has_parcel = true
 		body.on_catch()
+
+
+func on_first_move():
+	if not moved:
+		moved = true
+		get_node("../GenericUI").start()

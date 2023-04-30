@@ -1,0 +1,71 @@
+extends CanvasLayer
+
+var time = 0
+
+var running = false
+var ended = false
+
+func _ready():
+	$WellDone.visible = false
+	$TimerBig.visible = false
+	$Score.visible = false
+	$Buttons.visible = false
+	get_node("Score/Parcel").visible = false
+	get_node("Score/Star1").visible = false
+	get_node("Score/Star2").visible = false
+	get_node("Score/Star3").visible = false
+
+func start():
+	running = true
+
+func stop():
+	running = true
+
+func end_level():
+	ended = true
+	$WellDone.visible = true
+	await get_tree().create_timer(0.3).timeout
+	$TimerBig.visible = true
+	$Score.visible = true
+
+	# Score
+	await get_tree().create_timer(0.3).timeout
+	get_node("Score/Parcel").visible = true
+	await get_tree().create_timer(0.3).timeout
+	get_node("Score/Star1").visible = true
+	await get_tree().create_timer(0.3).timeout
+	get_node("Score/Star2").visible = true
+	await get_tree().create_timer(0.3).timeout
+	get_node("Score/Star3").visible = true
+
+	await get_tree().create_timer(0.3).timeout
+	$Buttons.visible = true
+
+func _process(delta):
+	if running and not ended:
+		time += delta
+
+		var minutes = time / 60
+		var seconds = fmod(time, 60)
+		var milliseconds = fmod(time, 1) * 100
+
+		$Timer.text = "[right]Time: %02d:%02d:%02d[/right]" % [minutes, seconds, milliseconds]
+		$TimerBig.text = "[right]Time: %02d:%02d:%02d[/right]" % [minutes, seconds, milliseconds]
+
+
+func _on_next_level_button_up():
+	get_node("../Postman").ended = true
+	await get_tree().create_timer(0.1).timeout
+	get_node("/root/Game").next_level()
+
+
+func _on_retry_button_up():
+	get_node("../Postman").ended = true
+	await get_tree().create_timer(0.1).timeout
+	get_node("/root/Game").restart()
+
+
+func _on_restart_button_up():
+	get_node("../Postman").ended = true
+	await get_tree().create_timer(0.1).timeout
+	get_node("/root/Game").restart()

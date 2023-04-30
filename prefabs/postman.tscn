@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=3 uid="uid://da33kxo3iwegf"]
+[gd_scene load_steps=30 format=3 uid="uid://da33kxo3iwegf"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1l7os"]
 [ext_resource type="Texture2D" uid="uid://r6k62ieyusc4" path="res://art/character.png" id="2_wrm1m"]
+[ext_resource type="AudioStream" uid="uid://bqs2u3wsjq7px" path="res://art/level_start.wav" id="3_svgig"]
+[ext_resource type="AudioStream" uid="uid://cxr0toqcv0q6m" path="res://art/gameloop.wav" id="4_4kk4g"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c77hw"]
 radius = 7.0
@@ -272,5 +274,16 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_aj0ov")
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="IdleLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_svgig")
+autoplay = true
+
+[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_4kk4g")
+volume_db = -80.0
+autoplay = true
 
 [connection signal="body_entered" from="PickupZone" to="." method="_on_pickup_zone_body_entered"]

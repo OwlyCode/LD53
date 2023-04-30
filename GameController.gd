@@ -29,6 +29,13 @@ func restart():
 			for y in x.get_children():
 				y.queue_free()
 
+	var cl_color = RenderingServer.get_default_clear_color()
+	RenderingServer.set_default_clear_color(Color.BLACK)
+
+	await get_tree().create_timer(0.1).timeout
+
+	RenderingServer.set_default_clear_color(cl_color)
+
 	var cl = levels[current_level].instantiate()
 
 	get_tree().root.add_child(cl)

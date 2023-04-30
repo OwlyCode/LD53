@@ -1,18 +1,138 @@
-[gd_scene format=3 uid="uid://b3wm0lo1lun00"]
+[gd_scene load_steps=6 format=3 uid="uid://b3wm0lo1lun00"]
+
+[ext_resource type="Script" path="res://prefabs/generic_ui.gd" id="1_sfwv1"]
+[ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="2_2lwej"]
+[ext_resource type="Texture2D" uid="uid://cr12t1xl3v47j" path="res://art/fix-emoji.png" id="3_ww7b3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57gq7"]
+atlas = ExtResource("3_ww7b3")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j4is4"]
+atlas = ExtResource("3_ww7b3")
+region = Rect2(48, 0, 48, 48)
 
 [node name="GenericUI" type="CanvasLayer"]
+process_priority = 10
+script = ExtResource("1_sfwv1")
 
-[node name="Restart" type="RichTextLabel" parent="."]
-anchors_preset = 3
+[node name="Timer" type="RichTextLabel" parent="."]
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -154.0
-offset_top = -27.0
-offset_right = 43.0
+offset_left = -153.0
+offset_right = -6.0
+offset_bottom = 28.0
 grow_horizontal = 0
-grow_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[right]Time: 0m00s[/right]"
+
+[node name="TimerBig" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -129.0
+offset_top = -47.0
+offset_right = 130.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = "R: Restart the level"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 37
+bbcode_enabled = true
+text = "[center]Time: 0m00s[/center]"
+
+[node name="WellDone" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -153.0
+offset_right = 262.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/normal_font_size = 80
+bbcode_enabled = true
+text = "[center][rainbow][wave]Well done![/wave][/rainbow][/center]"
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 888.0
+offset_top = 601.0
+offset_right = 1010.0
+offset_bottom = 641.0
+theme = ExtResource("2_2lwej")
+theme_override_font_sizes/font_size = 15
+text = "Restart level (R)"
+
+[node name="Score" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 8.0
+offset_right = 102.0
+offset_bottom = 56.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parcel" type="TextureRect" parent="Score"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_57gq7")
+
+[node name="Star1" type="TextureRect" parent="Score"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j4is4")
+
+[node name="Star2" type="TextureRect" parent="Score"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j4is4")
+
+[node name="Star3" type="TextureRect" parent="Score"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_j4is4")
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.0
+offset_top = 69.0
+offset_right = 94.0
+offset_bottom = 109.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Retry" type="Button" parent="Buttons"]
+layout_mode = 2
+theme = ExtResource("2_2lwej")
+text = "Retry"
+
+[node name="NextLevel" type="Button" parent="Buttons"]
+layout_mode = 2
+theme = ExtResource("2_2lwej")
+text = "Next level"
+
+[connection signal="button_up" from="Restart" to="." method="_on_restart_button_up"]
+[connection signal="button_up" from="Buttons/Retry" to="." method="_on_retry_button_up"]
+[connection signal="button_up" from="Buttons/NextLevel" to="." method="_on_next_level_button_up"]

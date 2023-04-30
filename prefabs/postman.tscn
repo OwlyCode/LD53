@@ -1,9 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://da33kxo3iwegf"]
+[gd_scene load_steps=31 format=3 uid="uid://da33kxo3iwegf"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1l7os"]
 [ext_resource type="Texture2D" uid="uid://r6k62ieyusc4" path="res://art/character.png" id="2_wrm1m"]
 [ext_resource type="AudioStream" uid="uid://bqs2u3wsjq7px" path="res://art/level_start.wav" id="3_svgig"]
 [ext_resource type="AudioStream" uid="uid://cxr0toqcv0q6m" path="res://art/gameloop.wav" id="4_4kk4g"]
+[ext_resource type="AudioStream" uid="uid://bybqo1q6dhgh8" path="res://art/pickup.wav" id="5_jyd32"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c77hw"]
 radius = 7.0
@@ -285,5 +286,8 @@ autoplay = true
 stream = ExtResource("4_4kk4g")
 volume_db = -80.0
 autoplay = true
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_jyd32")
 
 [connection signal="body_entered" from="PickupZone" to="." method="_on_pickup_zone_body_entered"]

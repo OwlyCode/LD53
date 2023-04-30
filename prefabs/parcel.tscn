@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmo3fv31nu63"]
+[gd_scene load_steps=8 format=3 uid="uid://cmo3fv31nu63"]
 
 [ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="1_52wky"]
 [ext_resource type="Script" path="res://prefabs/parcel.gd" id="1_spn4v"]
+[ext_resource type="AudioStream" uid="uid://dupqcqir1lt5y" path="res://art/parcel.wav" id="3_gvof7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5rj2a"]
 friction = 0.35
@@ -24,6 +25,8 @@ collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_5rj2a")
 gravity_scale = 0.5
 continuous_cd = 2
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_spn4v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -39,3 +42,8 @@ emission_rect_extents = Vector2(6, 6)
 gravity = Vector2(0, 0)
 scale_amount_max = 4.0
 color_ramp = SubResource("Gradient_v55op")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_gvof7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

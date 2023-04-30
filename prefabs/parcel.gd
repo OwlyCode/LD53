@@ -6,6 +6,8 @@ var caught = false
 var immune_time = 0.2
 var decay_time = 5.0
 
+var pickable = true
+
 func _process(delta):
 	immune_time -= delta
 
@@ -29,3 +31,12 @@ func _physics_process(_delta):
 func on_catch():
 	$Sprite2D.visible = false
 	caught = true
+	pickable = false
+
+
+func _on_body_entered(_body:Node):
+	var impact = linear_velocity.length() / 200
+
+	if impact > 1:
+		get_tree().call_group("effects", "camera_shake", linear_velocity.x / 100)
+		$AudioStreamPlayer.play()

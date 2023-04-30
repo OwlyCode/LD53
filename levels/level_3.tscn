@@ -39,4 +39,4 @@ scroll_active = false
 autowrap_mode = 2
 script = ExtResource("4_pikij")
 
-[node name="GenericUI" parent="." instance=ExtResource("5_2wle4")]
+[node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_2wle4")]

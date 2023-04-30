@@ -20,4 +20,4 @@ position = Vector2(880, 274)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(702, 357)
 
-[node name="GenericUI" parent="." instance=ExtResource("4_bj2yj")]
+[node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("4_bj2yj")]

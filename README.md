@@ -2,15 +2,15 @@ TODO
 - UI
     - audio control
 
-- bounce screenshake
 - impact on ground (player / parcel)
-
-- bounce sound
-- goal sound
-- jump sound
 
 - level selection
     - display stars and game state
+
+- goal sound
+- jump sound
+- catch sound
+
 
 - dog
 - camera

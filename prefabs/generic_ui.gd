@@ -33,7 +33,6 @@ func _ready():
 	milliseconds = fmod(star3_time, 1) * 100
 	get_node("Goals/Label3").text = "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
 
-
 func start():
 	running = true
 
@@ -111,3 +110,16 @@ func _on_restart_button_up():
 	get_node("../Postman").ended = true
 	await get_tree().create_timer(0.1).timeout
 	get_node("/root/Game").restart()
+
+
+
+
+
+func camera_shake(intensity = 1, duration = 1):
+	var camera = get_node("../Camera2D")
+
+	for i in range(duration):
+		camera.position.x += intensity
+		await get_tree().create_timer(0.1).timeout
+		camera.position.x -= intensity
+		await get_tree().create_timer(0.1).timeout

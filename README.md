@@ -1,7 +1,6 @@
 TODO
 - UI
     - audio control
-    - Show real stars per level
 
 - bounce screenshake
 - impact on ground (player / parcel)
@@ -15,12 +14,12 @@ TODO
 
 - dog
 - camera
-- right click cancel shoot
 - making levels
 
 - Restart on death (parcel or character out of screen) ?
 
 Bugs
+- tutorial outline
 - Mouse focus issues
 - Glitch throw throught walls (level 2)
 - Resolution issue

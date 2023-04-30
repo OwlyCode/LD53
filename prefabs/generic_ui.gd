@@ -23,14 +23,10 @@ func _ready():
 	get_node("Score/StarSound2").stop()
 	get_node("Score/StarSound3").stop()
 
-
-
 	var minutes = star2_time / 60
 	var seconds = fmod(star2_time, 60)
 	var milliseconds = fmod(star2_time, 1) * 100
 	get_node("Goals/Label2").text = "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
-
-
 
 	minutes = star3_time / 60
 	seconds = fmod(star3_time, 60)
@@ -53,6 +49,10 @@ func end_level():
 
 		$Overlay.visible = true
 		$WellDone.visible = true
+
+		if time < star3_time:
+			$WellDone.text = "[center][rainbow][wave]Well done![/wave][/rainbow][/center]"
+
 		await get_tree().create_timer(0.3).timeout
 		get_node("Score/ParcelSound").play()
 		$TimerBig.visible = true

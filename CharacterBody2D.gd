@@ -19,6 +19,7 @@ var ended = false
 var moved = false
 var pitch_scale = 1.0
 var aiming = false
+var shoot_canceled = false
 
 func _ready():
 	$AnimatedSprite2D.play()
@@ -73,7 +74,7 @@ func _physics_process(delta):
 	var pitching = false
 
 	if has_parcel and not is_on_floor() and not ended:
-		if Input.is_action_pressed("shoot"):
+		if Input.is_action_pressed("shoot") and aiming and not shoot_canceled:
 			pitch_scale = clampf(pitch_scale - delta * 1.7, 0.25, 1.0)
 			Engine.time_scale = 0.2
 			pitching = true
@@ -85,7 +86,7 @@ func _physics_process(delta):
 	$MusicLoop.pitch_scale = pitch_scale
 	$IdleLoop.pitch_scale = pitch_scale
 
-	if has_parcel and not ended and Input.is_action_pressed("shoot"):
+	if has_parcel and not ended and Input.is_action_pressed("shoot") and not shoot_canceled:
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
 		update_trajectory(0.005, shoot_direction * shoot_power)
 		$Line2D.visible = true
@@ -93,6 +94,14 @@ func _physics_process(delta):
 		shoot_power = clampf(shoot_power, 0 , 800)
 		on_first_move()
 		aiming = true
+
+	if not ended and Input.is_action_pressed("cancel_shoot"):
+		aiming = false
+		shoot_canceled = true
+		$Line2D.visible = false
+
+	if not ended and Input.is_action_just_released("cancel_shoot"):
+		shoot_canceled = false
 
 	if has_parcel and Input.is_action_just_released("shoot") and aiming:
 		has_parcel = false

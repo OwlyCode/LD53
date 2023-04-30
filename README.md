@@ -2,10 +2,11 @@ TODO
 - UI
     - audio control
 
+- dog
+
 - level selection
     - display stars and game state
 
-- dog
 - making levels
 
 - Restart on death (parcel or character out of screen) ?

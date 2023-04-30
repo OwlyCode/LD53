@@ -2,6 +2,9 @@ extends CanvasLayer
 
 var time = 0
 
+@export var star2_time: float
+@export var star3_time: float
+
 var running = false
 var ended = false
 
@@ -19,6 +22,21 @@ func _ready():
 	get_node("Score/StarSound1").stop()
 	get_node("Score/StarSound2").stop()
 	get_node("Score/StarSound3").stop()
+
+
+
+	var minutes = star2_time / 60
+	var seconds = fmod(star2_time, 60)
+	var milliseconds = fmod(star2_time, 1) * 100
+	get_node("Goals/Label2").text = "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+
+
+
+	minutes = star3_time / 60
+	seconds = fmod(star3_time, 60)
+	milliseconds = fmod(star3_time, 1) * 100
+	get_node("Goals/Label3").text = "%02d:%02d:%02d" % [minutes, seconds, milliseconds]
+
 
 func start():
 	running = true
@@ -50,13 +68,15 @@ func end_level():
 		get_node("Score/Star1").visible = true
 		get_node("Score/StarSound1").play()
 
-		await get_tree().create_timer(0.3).timeout
-		get_node("Score/Star2").visible = true
-		get_node("Score/StarSound2").play()
+		if time < star2_time:
+			await get_tree().create_timer(0.3).timeout
+			get_node("Score/Star2").visible = true
+			get_node("Score/StarSound2").play()
 
-		await get_tree().create_timer(0.3).timeout
-		get_node("Score/Star3").visible = true
-		get_node("Score/StarSound3").play()
+		if time < star3_time:
+			await get_tree().create_timer(0.3).timeout
+			get_node("Score/Star3").visible = true
+			get_node("Score/StarSound3").play()
 
 		await get_tree().create_timer(0.3).timeout
 		$Buttons.visible = true

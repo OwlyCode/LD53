@@ -30,6 +30,8 @@ region = Rect2(194, 10, 43, 25)
 [node name="GenericUI" type="CanvasLayer"]
 process_priority = 10
 script = ExtResource("1_sfwv1")
+star2_time = 15.0
+star3_time = 5.0
 
 [node name="Overlay" type="Panel" parent="."]
 anchors_preset = 15
@@ -186,7 +188,7 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 16
-text = "00:03:500"
+text = "any time"
 
 [node name="Star4" type="TextureRect" parent="Goals/Label"]
 layout_mode = 2

@@ -95,6 +95,8 @@ func _physics_process(delta):
 		on_first_move()
 		aiming = true
 
+	$Line2D.default_color = Color.RED.lerp(Color.GREEN, shoot_power / max_shoot_power)
+
 	if not ended and Input.is_action_pressed("cancel_shoot"):
 		aiming = false
 		shoot_canceled = true
@@ -146,6 +148,7 @@ func _physics_process(delta):
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and was_on_floor < 0.15 and not ended:
+		$Jump.play()
 		on_first_move()
 		velocity.y = JUMP_VELOCITY
 		if sliding:

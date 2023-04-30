@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b201qcid7rcgl"]
+[gd_scene load_steps=8 format=3 uid="uid://b201qcid7rcgl"]
 
 [ext_resource type="Script" path="res://Goal.gd" id="1_lakxt"]
 [ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="2_0x5k1"]
+[ext_resource type="AudioStream" uid="uid://ckhr6gwqk3r8q" path="res://art/Goal.wav" id="3_funwv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ribpl"]
 atlas = ExtResource("2_0x5k1")
@@ -66,5 +67,8 @@ initial_velocity_max = 250.0
 scale_amount_min = 3.0
 scale_amount_max = 5.0
 color_initial_ramp = SubResource("Gradient_v7f3n")
+
+[node name="GoalSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_funwv")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

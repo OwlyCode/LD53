@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://finroad8pc5o"]
+[gd_scene load_steps=7 format=3 uid="uid://finroad8pc5o"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_ysf0i"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_70dv6"]
 [ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_psdkh"]
 [ext_resource type="Script" path="res://Tutorial.gd" id="4_caal0"]
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_aanwb"]
+[ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_vrvoy"]
 
 [node name="Level1" type="Node"]
 
@@ -26,6 +27,8 @@ offset_left = 129.0
 offset_top = 134.0
 offset_right = 772.0
 offset_bottom = 241.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "[center]Use Z and D to move left and right.[/center]
@@ -36,3 +39,8 @@ autowrap_mode = 0
 script = ExtResource("4_caal0")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_aanwb")]
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(448, 222)
+texture = ExtResource("6_vrvoy")

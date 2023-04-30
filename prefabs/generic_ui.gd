@@ -31,6 +31,7 @@ func end_level():
 		ended = true
 		await get_tree().create_timer(0.5).timeout
 		get_node("Score/ParcelSound").play()
+		$Goals.visible = true
 
 		$Overlay.visible = true
 		$WellDone.visible = true

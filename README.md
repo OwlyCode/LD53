@@ -1,8 +1,7 @@
 TODO
 - UI
-    - timer
-    - stars
     - audio control
+    - Show real stars per level
 
 - bounce screenshake
 - impact on ground (player / parcel)
@@ -13,8 +12,6 @@ TODO
 
 - level selection
     - display stars and game state
-
-- sounds integration
 
 - dog
 - camera

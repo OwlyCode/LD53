@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3wm0lo1lun00"]
+[gd_scene load_steps=12 format=3 uid="uid://b3wm0lo1lun00"]
 
 [ext_resource type="Script" path="res://prefabs/generic_ui.gd" id="1_sfwv1"]
 [ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="2_2lwej"]
@@ -14,6 +14,18 @@ region = Rect2(0, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_j4is4"]
 atlas = ExtResource("3_ww7b3")
 region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjj3m"]
+atlas = ExtResource("3_ww7b3")
+region = Rect2(107, 10, 27, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3b50p"]
+atlas = ExtResource("3_ww7b3")
+region = Rect2(150, 10, 35, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y08xh"]
+atlas = ExtResource("3_ww7b3")
+region = Rect2(194, 10, 43, 25)
 
 [node name="GenericUI" type="CanvasLayer"]
 process_priority = 10
@@ -81,10 +93,17 @@ bbcode_enabled = true
 text = "[center][rainbow][wave]Well done![/wave][/rainbow][/center]"
 
 [node name="Restart" type="Button" parent="."]
-offset_left = 888.0
-offset_top = 601.0
-offset_right = 1010.0
-offset_bottom = 641.0
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -129.0
+offset_top = -48.0
+offset_right = -7.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
 theme = ExtResource("2_2lwej")
 theme_override_font_sizes/font_size = 15
 text = "Restart level (R)"
@@ -155,6 +174,58 @@ text = "Retry"
 layout_mode = 2
 theme = ExtResource("2_2lwej")
 text = "Next level"
+
+[node name="Goals" type="VBoxContainer" parent="."]
+offset_left = 51.0
+offset_top = 10.0
+offset_right = 198.0
+offset_bottom = 96.0
+
+[node name="Label" type="Label" parent="Goals"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "00:03:500"
+
+[node name="Star4" type="TextureRect" parent="Goals/Label"]
+layout_mode = 2
+offset_left = -39.0
+offset_top = -2.0
+offset_right = -12.0
+offset_bottom = 23.0
+texture = SubResource("AtlasTexture_gjj3m")
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="Goals"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "00:03:500"
+
+[node name="Star5" type="TextureRect" parent="Goals/Label2"]
+offset_left = -43.0
+offset_top = -2.0
+offset_right = -8.0
+offset_bottom = 23.0
+texture = SubResource("AtlasTexture_3b50p")
+stretch_mode = 3
+
+[node name="Label3" type="Label" parent="Goals"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 16
+text = "00:03:500"
+
+[node name="Star5" type="TextureRect" parent="Goals/Label3"]
+offset_left = -47.0
+offset_top = -3.0
+offset_right = -4.0
+offset_bottom = 22.0
+texture = SubResource("AtlasTexture_y08xh")
+stretch_mode = 3
 
 [connection signal="button_up" from="Restart" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="Buttons/Retry" to="." method="_on_retry_button_up"]

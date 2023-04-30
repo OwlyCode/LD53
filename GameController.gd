@@ -8,7 +8,7 @@ var levels = [
 	preload("res://levels/level_x.tscn")
 ]
 
-var current_level = 3
+var current_level = 0
 var inited = false
 
 # Called when the node enters the scene tree for the first time.

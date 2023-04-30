@@ -51,6 +51,12 @@ func update_trajectory(delta, initial_velocity):
 
 
 func _physics_process(delta):
+
+	var prefix = "carrying_"
+
+	if not has_parcel:
+		prefix = ""
+
 	Engine.time_scale = 1.0
 
 	if Input.is_action_just_pressed("restart"):
@@ -128,22 +134,25 @@ func _physics_process(delta):
 		sliding = false
 
 	if not is_on_floor():
-		$AnimatedSprite2D.animation = "jump"
+		if last_motion.x >= 0:
+			switch_animation(prefix + "jump_right")
+		else:
+			switch_animation(prefix + "jump_left")
 	else:
-		$AnimatedSprite2D.animation = "idle"
-
 		if last_motion.x > 0:
 			if not sliding:
-				$AnimatedSprite2D.animation = "walk_right"
+				switch_animation(prefix + "walk_right")
 			else:
-				$AnimatedSprite2D.animation = "slide_right"
+				switch_animation(prefix + "slide_right")
 				$CollisionShape2D.rotation_degrees = -45
 		elif last_motion.x < 0:
 			if not sliding:
-				$AnimatedSprite2D.animation = "walk_left"
+				switch_animation(prefix + "walk_left")
 			else:
-				$AnimatedSprite2D.animation = "slide_left"
+				switch_animation(prefix + "slide_left")
 				$CollisionShape2D.rotation_degrees = 45
+		else:
+			switch_animation(prefix + "idle")
 
 
 	if ended:
@@ -156,3 +165,9 @@ func _physics_process(delta):
 		$CPUParticles2D.emitting = true
 	else:
 		$CPUParticles2D.emitting = false
+
+
+func switch_animation(anim):
+	if $AnimatedSprite2D.animation != anim:
+		$AnimatedSprite2D.play(anim)
+		print(anim)

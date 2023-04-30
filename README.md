@@ -1,4 +1,6 @@
 TODO
+- Show the restart button in the UI
+- Jump right / left
 - Restart on death (parcel or character out of screen)
 - Next level when win
 - UI
@@ -12,3 +14,9 @@ TODO
 - making levels
 - dog
 - camera
+- right click cancel shoot
+
+Bugs
+- Mouse focus issues
+- Glitch throw throught walls (level 2)
+- Resolution issue

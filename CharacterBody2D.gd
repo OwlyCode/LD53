@@ -173,6 +173,6 @@ func switch_animation(anim):
 
 
 func _on_pickup_zone_body_entered(body):
-	if body.immune_time <= 0:
+	if body.immune_time <= 0 and not ended:
 		has_parcel = true
 		body.on_catch()

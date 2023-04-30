@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b3wm0lo1lun00"]
+
+[node name="GenericUI" type="CanvasLayer"]
+
+[node name="Restart" type="RichTextLabel" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -27.0
+offset_right = 43.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "R: Restart the level"

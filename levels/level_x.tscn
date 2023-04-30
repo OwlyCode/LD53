@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqxelh0n5tmyg"]
+[gd_scene load_steps=5 format=3 uid="uid://cqxelh0n5tmyg"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_igu2t"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_ekut5"]
 [ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_ehijj"]
+[ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="4_bj2yj"]
 
 [node name="LevelX" type="Node"]
 
@@ -18,3 +19,5 @@ position = Vector2(880, 274)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(702, 357)
+
+[node name="GenericUI" parent="." instance=ExtResource("4_bj2yj")]

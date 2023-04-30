@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bil63hf0lbabt"]
+[gd_scene load_steps=6 format=3 uid="uid://bil63hf0lbabt"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_2qb5l"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_dy0nx"]
 [ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_wn2qg"]
 [ext_resource type="Script" path="res://Tutorial.gd" id="4_pikij"]
+[ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_2wle4"]
 
 [node name="Level3" type="Node"]
 
@@ -37,3 +38,5 @@ text = "[center]You can throw the parcel to unreachable spots to complete levels
 scroll_active = false
 autowrap_mode = 2
 script = ExtResource("4_pikij")
+
+[node name="GenericUI" parent="." instance=ExtResource("5_2wle4")]

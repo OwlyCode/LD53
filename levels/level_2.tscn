@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bb676ykbqubna"]
+[gd_scene load_steps=6 format=3 uid="uid://bb676ykbqubna"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_bl8n0"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_ukpgq"]
 [ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_2knit"]
 [ext_resource type="Script" path="res://Tutorial.gd" id="4_l8ikh"]
+[ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_n5ghc"]
 
 [node name="Level2" type="Node"]
 
@@ -31,3 +32,5 @@ text = "[center]Use space to jump![/center]"
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("4_l8ikh")
+
+[node name="GenericUI" parent="." instance=ExtResource("5_n5ghc")]

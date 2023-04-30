@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://finroad8pc5o"]
+[gd_scene load_steps=6 format=3 uid="uid://finroad8pc5o"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_ysf0i"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_70dv6"]
 [ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_psdkh"]
 [ext_resource type="Script" path="res://Tutorial.gd" id="4_caal0"]
+[ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_aanwb"]
 
 [node name="Level1" type="Node"]
 
@@ -33,3 +34,5 @@ text = "[center]Use Z and D to move left and right.[/center]
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("4_caal0")
+
+[node name="GenericUI" parent="." instance=ExtResource("5_aanwb")]

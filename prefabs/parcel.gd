@@ -3,7 +3,7 @@ extends RigidBody2D
 var reached = false
 var caught = false
 
-var immune_time = 0.5
+var immune_time = 0.2
 var decay_time = 5.0
 
 func _process(delta):

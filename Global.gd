@@ -1,7 +1,7 @@
 extends Node
 
 var current_level = 0
-var unlocked_level = 10
+var unlocked_level = 20
 
 var star_memory = []
 var current_scene = null
@@ -11,7 +11,7 @@ var selector = preload("res://level_select.tscn")
 
 var levels = [
 	# Debug
-	preload("res://levels/level_S5.tscn"),
+	preload("res://levels/level_S3.tscn"),
 
 	# Tutorial
 	preload("res://levels/level_A1.tscn"),
@@ -38,9 +38,9 @@ var levels = [
 
 	# Parcel jump intro x5 (manque 1)
 	preload("res://levels/level_SJ1.tscn"),
-	preload("res://levels/level_SJ2.tscn"),
 	preload("res://levels/level_SJ3.tscn"),
-	preload("res://levels/level_SJ4.tscn")
+	preload("res://levels/level_SJ4.tscn"),
+	preload("res://levels/level_SJ5.tscn")
 
 	# Bonus (autant qu'on veut, plutot difficile car en fin de jeu)
 ]

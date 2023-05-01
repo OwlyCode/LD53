@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://beb8dxgcm73yf"]
+[gd_scene load_steps=13 format=3 uid="uid://beb8dxgcm73yf"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_6kjdx"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_j5ulo"]
@@ -7,6 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_v8hhj"]
 [ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="6_67b4n"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_66845"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="8_p2ial"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="9_skbep"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="10_abmgy"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="11_20170"]
+[ext_resource type="PackedScene" uid="uid://53l5jsmv415t" path="res://decoration/flower_c.tscn" id="12_104tv"]
 
 [node name="Level6" type="Node"]
 
@@ -46,3 +51,27 @@ idle = true
 
 [node name="Inbox" parent="." instance=ExtResource("7_66845")]
 position = Vector2(199, 449)
+
+[node name="CloudA" parent="." instance=ExtResource("8_p2ial")]
+position = Vector2(111, 116)
+
+[node name="CloudA2" parent="." instance=ExtResource("9_skbep")]
+position = Vector2(687, 121)
+
+[node name="FlowerA" parent="." instance=ExtResource("10_abmgy")]
+position = Vector2(149, 250)
+
+[node name="FlowerB" parent="." instance=ExtResource("11_20170")]
+position = Vector2(688, 250)
+
+[node name="FlowerB2" parent="." instance=ExtResource("12_104tv")]
+position = Vector2(449, 316)
+
+[node name="FlowerB3" parent="." instance=ExtResource("12_104tv")]
+position = Vector2(596, 251)
+
+[node name="FlowerA2" parent="." instance=ExtResource("10_abmgy")]
+position = Vector2(27, 252)
+
+[node name="FlowerB4" parent="." instance=ExtResource("11_20170")]
+position = Vector2(202, 250)

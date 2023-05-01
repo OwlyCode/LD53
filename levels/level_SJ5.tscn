@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3o3iyp6g7h5i"]
+[gd_scene load_steps=14 format=3 uid="uid://d3o3iyp6g7h5i"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_i2fkm"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_xo4fr"]
@@ -9,6 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://wbr5opqbesl8" path="res://prefabs/door.tscn" id="7_h484n"]
 [ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="8_7alij"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="9_fpu4q"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="10_fa80x"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="11_hhpt2"]
+[ext_resource type="PackedScene" uid="uid://duxxuj6seckbl" path="res://decoration/cloud_c.tscn" id="12_tq5jq"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="13_gkgm3"]
 
 [node name="Level99" type="Node"]
 
@@ -50,3 +54,27 @@ position = Vector2(504, 463)
 
 [node name="Inbox" parent="." instance=ExtResource("9_fpu4q")]
 position = Vector2(794, 353)
+
+[node name="FlowerB" parent="." instance=ExtResource("10_fa80x")]
+position = Vector2(225, 346)
+
+[node name="FlowerA" parent="." instance=ExtResource("11_hhpt2")]
+position = Vector2(880, 380)
+
+[node name="FlowerA2" parent="." instance=ExtResource("11_hhpt2")]
+position = Vector2(889, 380)
+
+[node name="FlowerA3" parent="." instance=ExtResource("11_hhpt2")]
+position = Vector2(909, 380)
+
+[node name="FlowerB2" parent="." instance=ExtResource("10_fa80x")]
+position = Vector2(58, 153)
+
+[node name="FlowerA4" parent="." instance=ExtResource("11_hhpt2")]
+position = Vector2(82, 155)
+
+[node name="CloudA" parent="." instance=ExtResource("12_tq5jq")]
+position = Vector2(252, 102)
+
+[node name="CloudA2" parent="." instance=ExtResource("13_gkgm3")]
+position = Vector2(657, 134)

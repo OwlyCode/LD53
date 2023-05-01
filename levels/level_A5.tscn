@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3mpa5gs20frv"]
+[gd_scene load_steps=10 format=3 uid="uid://b3mpa5gs20frv"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_1s8wh"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_1chcp"]
@@ -6,6 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="4_jfwmk"]
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_vc52t"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="6_uh1yc"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="7_edoy6"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="8_w4b3u"]
+[ext_resource type="PackedScene" uid="uid://duxxuj6seckbl" path="res://decoration/cloud_c.tscn" id="9_2qesi"]
 
 [node name="Level6" type="Node"]
 
@@ -36,3 +39,12 @@ star3_time = 10.5
 
 [node name="Inbox" parent="." instance=ExtResource("6_uh1yc")]
 position = Vector2(43, 287)
+
+[node name="CloudA" parent="." instance=ExtResource("7_edoy6")]
+position = Vector2(121, 86)
+
+[node name="CloudA2" parent="." instance=ExtResource("8_w4b3u")]
+position = Vector2(803, 67)
+
+[node name="CloudA3" parent="." instance=ExtResource("9_2qesi")]
+position = Vector2(459, 161)

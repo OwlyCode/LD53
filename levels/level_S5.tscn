@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://f8mq3f2x2mb6"]
+[gd_scene load_steps=13 format=3 uid="uid://f8mq3f2x2mb6"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_giss6"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_6bfgv"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://wbr5opqbesl8" path="res://prefabs/door.tscn" id="6_qtlpd"]
 [ext_resource type="PackedScene" uid="uid://d3jqrkfuye7wi" path="res://prefabs/pressure_plate.tscn" id="7_s488k"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="8_mqgiw"]
+[ext_resource type="PackedScene" uid="uid://duxxuj6seckbl" path="res://decoration/cloud_c.tscn" id="9_ohmwm"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="10_82lgp"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="11_jvckp"]
+[ext_resource type="PackedScene" uid="uid://d0514r0iivawx" path="res://decoration/warning.tscn" id="12_y275f"]
 
 [node name="Level6" type="Node"]
 
@@ -49,3 +53,15 @@ target = Array[NodePath]([NodePath("../Door"), NodePath("../Door2"), NodePath(".
 
 [node name="Inbox" parent="." instance=ExtResource("8_mqgiw")]
 position = Vector2(626, 276)
+
+[node name="CloudA" parent="." instance=ExtResource("9_ohmwm")]
+position = Vector2(751, 53)
+
+[node name="CloudA2" parent="." instance=ExtResource("10_82lgp")]
+position = Vector2(150, 157)
+
+[node name="CloudA3" parent="." instance=ExtResource("11_jvckp")]
+position = Vector2(412, 69)
+
+[node name="Warning" parent="." instance=ExtResource("12_y275f")]
+position = Vector2(333, 413)

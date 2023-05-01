@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch02nwjmscngs"]
+[gd_scene load_steps=17 format=3 uid="uid://ch02nwjmscngs"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_q06k1"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_n66jm"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://d3jqrkfuye7wi" path="res://prefabs/pressure_plate.tscn" id="8_mthtb"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="9_qob6n"]
 [ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="10_rullb"]
+[ext_resource type="PackedScene" uid="uid://53l5jsmv415t" path="res://decoration/flower_c.tscn" id="11_ck7gq"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="12_ehrw3"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="13_5kywo"]
+[ext_resource type="PackedScene" uid="uid://duxxuj6seckbl" path="res://decoration/cloud_c.tscn" id="14_o4106"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="15_oikn5"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="16_rs8iy"]
 
 [node name="LevelS1" type="Node"]
 
@@ -64,3 +70,27 @@ position = Vector2(625, 352)
 
 [node name="Mima" parent="." instance=ExtResource("10_rullb")]
 position = Vector2(280, 337)
+
+[node name="FlowerB" parent="." instance=ExtResource("11_ck7gq")]
+position = Vector2(65, 188)
+
+[node name="FlowerA" parent="." instance=ExtResource("12_ehrw3")]
+position = Vector2(726, 346)
+
+[node name="FlowerA2" parent="." instance=ExtResource("12_ehrw3")]
+position = Vector2(304, 348)
+
+[node name="FlowerB2" parent="." instance=ExtResource("13_5kywo")]
+position = Vector2(259, 346)
+
+[node name="FlowerB3" parent="." instance=ExtResource("13_5kywo")]
+position = Vector2(869, 344)
+
+[node name="CloudA" parent="." instance=ExtResource("14_o4106")]
+position = Vector2(180, 147)
+
+[node name="CloudA2" parent="." instance=ExtResource("15_oikn5")]
+position = Vector2(736, 56)
+
+[node name="CloudA3" parent="." instance=ExtResource("16_rs8iy")]
+position = Vector2(442, 94)

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmymd1ebjkjfw"]
+
+[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="1_piv6r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvwbi"]
+atlas = ExtResource("1_piv6r")
+region = Rect2(230, 44, 20, 24)
+
+[node name="FlowerB" type="Sprite2D"]
+z_index = 1
+texture = SubResource("AtlasTexture_rvwbi")

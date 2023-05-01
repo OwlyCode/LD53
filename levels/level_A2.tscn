@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bb676ykbqubna"]
+[gd_scene load_steps=14 format=3 uid="uid://bb676ykbqubna"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_xk58q"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_y05j8"]
@@ -8,6 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="6_u57ih"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_huhyq"]
 [ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="8_h0rkg"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="9_fxdkm"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="10_bv8hm"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="11_rapfk"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="12_mj02h"]
+[ext_resource type="PackedScene" uid="uid://53l5jsmv415t" path="res://decoration/flower_c.tscn" id="13_8lijt"]
 
 [node name="Level2" type="Node"]
 
@@ -51,3 +56,27 @@ position = Vector2(779, 353)
 
 [node name="Mima" parent="." instance=ExtResource("8_h0rkg")]
 position = Vector2(446, 273)
+
+[node name="FlowerA" parent="." instance=ExtResource("9_fxdkm")]
+position = Vector2(425, 281)
+
+[node name="FlowerB" parent="." instance=ExtResource("10_bv8hm")]
+position = Vector2(470, 281)
+
+[node name="CloudA" parent="." instance=ExtResource("11_rapfk")]
+position = Vector2(237, 104)
+
+[node name="CloudA2" parent="." instance=ExtResource("12_mj02h")]
+position = Vector2(669, 93)
+
+[node name="FlowerB2" parent="." instance=ExtResource("13_8lijt")]
+position = Vector2(209, 348)
+
+[node name="FlowerB3" parent="." instance=ExtResource("10_bv8hm")]
+position = Vector2(291, 346)
+
+[node name="FlowerB4" parent="." instance=ExtResource("13_8lijt")]
+position = Vector2(649, 348)
+
+[node name="FlowerA2" parent="." instance=ExtResource("9_fxdkm")]
+position = Vector2(614, 348)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c23wmxnpopvk8"]
+[gd_scene load_steps=12 format=3 uid="uid://c23wmxnpopvk8"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_wauqg"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_812pv"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://wbr5opqbesl8" path="res://prefabs/door.tscn" id="7_vos21"]
 [ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="8_cippw"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="9_xfc12"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="10_pk1jb"]
+[ext_resource type="PackedScene" uid="uid://duxxuj6seckbl" path="res://decoration/cloud_c.tscn" id="11_r2a47"]
 
 [node name="Level4" type="Node"]
 
@@ -66,3 +68,9 @@ flip = true
 
 [node name="Inbox" parent="." instance=ExtResource("9_xfc12")]
 position = Vector2(646, 572)
+
+[node name="CloudA" parent="." instance=ExtResource("10_pk1jb")]
+position = Vector2(357, 121)
+
+[node name="CloudA2" parent="." instance=ExtResource("11_r2a47")]
+position = Vector2(855, 118)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bwsr3hbg0c274"]
+[gd_scene load_steps=14 format=3 uid="uid://bwsr3hbg0c274"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_n5o1a"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_0l0fi"]
@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_76rqo"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_jp178"]
 [ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="8_7vdqd"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="9_bh7q8"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="10_lqkna"]
+[ext_resource type="PackedScene" uid="uid://53l5jsmv415t" path="res://decoration/flower_c.tscn" id="11_f2xr7"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="12_ffo2t"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="13_7jyul"]
 
 [node name="LevelS1" type="Node"]
 
@@ -53,3 +58,21 @@ position = Vector2(783, 354)
 
 [node name="Mima" parent="." instance=ExtResource("8_7vdqd")]
 position = Vector2(172, 177)
+
+[node name="FlowerA" parent="." instance=ExtResource("9_bh7q8")]
+position = Vector2(152, 187)
+
+[node name="FlowerB" parent="." instance=ExtResource("10_lqkna")]
+position = Vector2(569, 474)
+
+[node name="FlowerB2" parent="." instance=ExtResource("11_f2xr7")]
+position = Vector2(638, 477)
+
+[node name="FlowerA2" parent="." instance=ExtResource("9_bh7q8")]
+position = Vector2(512, 477)
+
+[node name="CloudA" parent="." instance=ExtResource("12_ffo2t")]
+position = Vector2(685, 72)
+
+[node name="CloudA2" parent="." instance=ExtResource("13_7jyul")]
+position = Vector2(251, 101)

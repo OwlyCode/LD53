@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://da01xijb1plf3"]
+
+[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="1_m6jsm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvwbi"]
+atlas = ExtResource("1_m6jsm")
+region = Rect2(9, 138, 20, 54)
+
+[node name="Lamp" type="Sprite2D"]
+z_index = -1
+texture = SubResource("AtlasTexture_rvwbi")

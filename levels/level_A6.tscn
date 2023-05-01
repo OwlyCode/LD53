@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cu6is4x15ihjr"]
+[gd_scene load_steps=13 format=3 uid="uid://cu6is4x15ihjr"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_t5obw"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_tuhp8"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="6_xlreu"]
 [ext_resource type="PackedScene" uid="uid://wbr5opqbesl8" path="res://prefabs/door.tscn" id="7_xqggf"]
 [ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="9_hpu6d"]
+[ext_resource type="PackedScene" uid="uid://bg6cw215w27dc" path="res://decoration/cloud_b.tscn" id="10_6prn0"]
+[ext_resource type="PackedScene" uid="uid://cal1r1p5vgwrd" path="res://decoration/cloud_a.tscn" id="11_17vph"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ie55k"]
 atlas = ExtResource("9_hpu6d")
@@ -55,3 +57,12 @@ position = Vector2(237, 193)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(243, 338)
 texture = SubResource("AtlasTexture_ie55k")
+
+[node name="CloudA" parent="." instance=ExtResource("10_6prn0")]
+position = Vector2(465, 52)
+
+[node name="CloudA2" parent="." instance=ExtResource("10_6prn0")]
+position = Vector2(866, 119)
+
+[node name="CloudA3" parent="." instance=ExtResource("11_17vph")]
+position = Vector2(148, 100)

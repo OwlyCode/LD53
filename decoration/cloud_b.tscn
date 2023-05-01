@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg6cw215w27dc"]
+
+[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="1_pdgcp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhqut"]
+atlas = ExtResource("1_pdgcp")
+region = Rect2(179, 81, 56, 54)
+
+[node name="CloudA" type="Sprite2D"]
+z_index = -4
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_mhqut")

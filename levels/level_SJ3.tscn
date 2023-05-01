@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd8ekwndi6wxu"]
+[gd_scene load_steps=11 format=3 uid="uid://cd8ekwndi6wxu"]
 
 [ext_resource type="PackedScene" uid="uid://wbr5opqbesl8" path="res://prefabs/door.tscn" id="1_6orui"]
 [ext_resource type="PackedScene" uid="uid://d3jqrkfuye7wi" path="res://prefabs/pressure_plate.tscn" id="2_vsr0c"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_dur05"]
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="7_kcb6p"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="8_kn5vu"]
+[ext_resource type="PackedScene" uid="uid://53l5jsmv415t" path="res://decoration/flower_c.tscn" id="9_v761c"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="10_yq4v5"]
 
 [node name="Level6" type="Node"]
 
@@ -46,3 +48,9 @@ star3_time = 10.5
 
 [node name="Inbox" parent="." instance=ExtResource("8_kn5vu")]
 position = Vector2(774, 129)
+
+[node name="FlowerB" parent="." instance=ExtResource("9_v761c")]
+position = Vector2(-55, 90)
+
+[node name="FlowerA" parent="." instance=ExtResource("10_yq4v5")]
+position = Vector2(7, 92)

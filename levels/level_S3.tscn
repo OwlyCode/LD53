@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgevd3egi8n77"]
+[gd_scene load_steps=12 format=3 uid="uid://cgevd3egi8n77"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_nc5pn"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_a3fn8"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_lcwxm"]
 [ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="6_7l0mg"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_jq3oy"]
+[ext_resource type="PackedScene" uid="uid://53l5jsmv415t" path="res://decoration/flower_c.tscn" id="8_vbxm2"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="9_lqkrg"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="10_8017n"]
+[ext_resource type="PackedScene" uid="uid://da01xijb1plf3" path="res://decoration/lamp.tscn" id="11_w8f6a"]
 
 [node name="Level6" type="Node"]
 
@@ -45,3 +49,27 @@ flip = true
 
 [node name="Inbox" parent="." instance=ExtResource("7_jq3oy")]
 position = Vector2(659, 129)
+
+[node name="FlowerB" parent="." instance=ExtResource("8_vbxm2")]
+position = Vector2(538, 444)
+
+[node name="FlowerB2" parent="." instance=ExtResource("9_lqkrg")]
+position = Vector2(639, 442)
+
+[node name="FlowerA" parent="." instance=ExtResource("10_8017n")]
+position = Vector2(712, 444)
+
+[node name="FlowerA2" parent="." instance=ExtResource("10_8017n")]
+position = Vector2(720, 444)
+
+[node name="FlowerA3" parent="." instance=ExtResource("10_8017n")]
+position = Vector2(702, 444)
+
+[node name="FlowerB3" parent="." instance=ExtResource("8_vbxm2")]
+position = Vector2(786, 442)
+
+[node name="FlowerB4" parent="." instance=ExtResource("9_lqkrg")]
+position = Vector2(497, 442)
+
+[node name="Lamp" parent="." instance=ExtResource("11_w8f6a")]
+position = Vector2(658, 261)

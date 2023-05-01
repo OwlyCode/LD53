@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0514r0iivawx"]
+
+[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="1_374cm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvwbi"]
+atlas = ExtResource("1_374cm")
+region = Rect2(130, -4, 28, 37)
+
+[node name="Warning" type="Sprite2D"]
+z_index = -1
+texture = SubResource("AtlasTexture_rvwbi")

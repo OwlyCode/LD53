@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://svwi6lguvlyy"]
+[gd_scene load_steps=12 format=3 uid="uid://svwi6lguvlyy"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_w81df"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_gt85i"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="7_84138"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="8_xq7vd"]
 [ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="9_7kryk"]
+[ext_resource type="PackedScene" uid="uid://bryy544hfrasr" path="res://decoration/flower_a.tscn" id="10_mnmf5"]
+[ext_resource type="PackedScene" uid="uid://cmymd1ebjkjfw" path="res://decoration/flower_b.tscn" id="11_xx58q"]
 
 [node name="LevelD1" type="Node"]
 
@@ -50,7 +52,7 @@ texture = ExtResource("6_5qe5n")
 position = Vector2(449, 296)
 
 [node name="Dog" parent="." instance=ExtResource("7_84138")]
-position = Vector2(237, 337)
+position = Vector2(229, 338)
 idle = true
 flip = true
 
@@ -59,3 +61,9 @@ position = Vector2(774, 354)
 
 [node name="Mima" parent="." instance=ExtResource("9_7kryk")]
 position = Vector2(271, 337)
+
+[node name="FlowerA" parent="." instance=ExtResource("10_mnmf5")]
+position = Vector2(295, 347)
+
+[node name="FlowerB" parent="." instance=ExtResource("11_xx58q")]
+position = Vector2(257, 346)

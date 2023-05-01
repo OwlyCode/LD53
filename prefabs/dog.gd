@@ -42,10 +42,18 @@ func _ready():
 
 func _physics_process(delta):
 
-	if going_left and not flip:
-		$DetectionZone.scale.x = 1
+	if going_left and not idle:
+		if flip:
+			$DetectionZone.scale.x = -1
+		else:
+			$DetectionZone.scale.x = 1
 	else:
-		$DetectionZone.scale.x = -1
+		if flip:
+			$DetectionZone.scale.x = 1
+		else:
+			$DetectionZone.scale.x = -1
+
+	$DetectionZone.visible = not angry and not happy and not ended and not caught
 
 	# Add the gravity.
 	if not is_on_floor():

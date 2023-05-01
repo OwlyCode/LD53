@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dqimlhwotd006" path="res://art/dog.png" id="1_lfwhr"]
 [ext_resource type="Script" path="res://prefabs/dog.gd" id="1_lpdk5"]
+[ext_resource type="Texture2D" uid="uid://bg85m67akhfay" path="res://art/detection zone.png" id="3_uhhcw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6pfm3"]
 radius = 15.0
@@ -153,9 +154,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d4k6w"]
-size = Vector2(128, 256)
-
 [sub_resource type="Curve" id="Curve_iceds"]
 max_value = 5.0
 _data = [Vector2(0, 0.536313), 0.0, 0.0, 0, 0, Vector2(0.980392, 2.31844), 1.4, 0.0, 0, 0]
@@ -186,9 +184,14 @@ animation = &"idle_right"
 collision_layer = 0
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-position = Vector2(-90, 0)
-shape = SubResource("RectangleShape2D_d4k6w")
+[node name="Sprite2D" type="Sprite2D" parent="DetectionZone"]
+self_modulate = Color(1, 1, 1, 0.203922)
+position = Vector2(77.4, -0.899994)
+texture = ExtResource("3_uhhcw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DetectionZone"]
+position = Vector2(77.4, -0.899994)
+polygon = PackedVector2Array(64, 114, -64, 0, 64, -113)
 
 [node name="RunningParticles" type="CPUParticles2D" parent="."]
 position = Vector2(1, 16)

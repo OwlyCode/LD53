@@ -1,27 +1,32 @@
 extends Node2D
 
 var levels = [
-	#preload("res://levels/level_SJ1.tscn"), # Debug
+	# Debug
+	preload("res://levels/level_S5.tscn"),
 
 	# Tutorial x3 (OK)
 	preload("res://levels/level_A1.tscn"),
 	preload("res://levels/level_A2.tscn"),
 	preload("res://levels/level_A3.tscn"),
 
-	# Dog intro x5 (manque 3)
+	# Dog intro x5 (manque 1)
 	preload("res://levels/level_D1.tscn"),
 	preload("res://levels/level_D2.tscn"),
+	preload("res://levels/level_D3.tscn"),
+	preload("res://levels/level_D4.tscn"),
 
 	# Slide intro x5 (manque 1)
 	preload("res://levels/level_S1.tscn"),
 	preload("res://levels/level_S2.tscn"),
 	preload("res://levels/level_S3.tscn"),
 	preload("res://levels/level_S4.tscn"),
+	preload("res://levels/level_S5.tscn"),
 
-	# Parcel jump intro x5 (manque 2)
+	# Parcel jump intro x5 (manque 1)
 	preload("res://levels/level_SJ1.tscn"),
 	preload("res://levels/level_SJ2.tscn"),
-	preload("res://levels/level_SJ3.tscn")
+	preload("res://levels/level_SJ3.tscn"),
+	preload("res://levels/level_SJ4.tscn")
 
 	# Bonus (autant qu'on veut, plutot difficile car en fin de jeu)
 ]

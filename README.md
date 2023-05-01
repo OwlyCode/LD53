@@ -3,16 +3,20 @@ TODO
     - tower jump too hard
 
 - UI
-    - audio control
     - main menu
     - level selection
         - display stars and unkocked levels
+    - audio control
     - credits
 
 - Better look for levels
     - City theme
     - Sewages
     - sitting dog
+
+- Bonus mechanics
+    - Grandma
+    - Camera
 
 - slide sound
 - door sound
@@ -21,6 +25,7 @@ TODO
 
 Bugs
 - Dog catch while aiming
+- Dog catch mid-air
 - Jump at tower level is too hard
 - Sliding issue
 - Bug if two dogs hunting the same parcel at the same time
@@ -42,8 +47,4 @@ Cookie - Barking ?
 
 No animal was hurt in the process of making this game
 
-(Sprite chien)
-
-
-3 haut
-4 longueur
+(dog sprite)

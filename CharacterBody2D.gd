@@ -88,7 +88,7 @@ func _physics_process(delta):
 		on_first_move()
 		aiming = true
 
-	$Line2D.default_color = Color.RED.lerp(Color.GREEN, shoot_power / max_shoot_power)
+	$Line2D.default_color = Color.GREEN.lerp(Color.RED, shoot_power / max_shoot_power)
 
 	if not ended and Input.is_action_pressed("cancel_shoot"):
 		aiming = false
@@ -152,7 +152,8 @@ func _physics_process(delta):
 		on_first_move()
 		if  (0.6 < get_floor_angle() and get_floor_angle() < 0.8) or (-0.8 < get_floor_angle() and get_floor_angle() < -0.6):
 			sliding = true
-			velocity.y = SPEED * 1.5
+			velocity.y = SPEED * 1.2
+			velocity.x = clampf(velocity.x, -SPEED * 2, SPEED * 2)
 
 	if is_on_floor():
 		was_on_floor = 0.0

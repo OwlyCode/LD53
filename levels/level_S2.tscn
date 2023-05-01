@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqxelh0n5tmyg"]
+
+[ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_66w6w"]
+[ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_m3bg1"]
+[ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_36omg"]
+[ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="4_yqv5j"]
+[ext_resource type="PackedScene" uid="uid://d3jqrkfuye7wi" path="res://prefabs/pressure_plate.tscn" id="5_l03gh"]
+
+[node name="LevelX" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_66w6w")
+format = 2
+layer_0/tile_data = PackedInt32Array(720908, 524288, 1, 720909, 262144, 2, 720910, 262144, 2, 720911, 524288, 1, 720912, 524288, 1, 720913, 524288, 1, 720914, 262144, 2, 720915, 262144, 2, 720916, 262144, 2, 720917, 262144, 2, 720918, 262144, 2, 720919, 262144, 2, 720920, 262144, 2, 720921, 0, 2, 786457, 524288, 2, 786456, 524288, 2, 786455, 524288, 2, 786454, 524288, 2, 786453, 524288, 2, 786452, 524288, 2, 786451, 524288, 2, 786450, 524288, 2, 786449, 524288, 2, 786448, 524288, 2, 786447, 524288, 2, 786446, 524288, 2, 786445, 524288, 2, 786444, 524288, 2, 786443, 524288, 2, 720907, 524288, 1, 720906, 524288, 1, 720905, 524288, 1, 720904, 524288, 1, 720903, 65536, 4, 786439, 458752, 2, 786440, 524288, 2, 786441, 524288, 2, 786442, 524288, 2, 786458, 0, 2, 655380, 262144, 2, 589844, 262144, 2, 524308, 65536, 4, 458772, 65536, 4, 589835, 327680, 1, 589834, 262144, 1, 589836, 327680, 1, 655367, 131072, 4, 589831, 131072, 4, 524295, 131072, 4, 458759, 131072, 4, 655374, 0, 2, 589837, 0, 2, 655373, 0, 4, 655383, 262144, 2, 589847, 0, 2, 589846, 262144, 2, 655382, 262144, 2, 655384, 0, 2, 655381, 262144, 2, 589845, 262144, 2, 524309, 262144, 2, 458773, 0, 2, 524310, 0, 2, 655378, 0, 4, 589842, 0, 4, 524306, 65536, 4, 458770, 65536, 4, 393234, 0, 4, 327698, 458752, 1, 327699, 0, 2, 393235, 65536, 4, 458771, 65536, 4, 524307, 65536, 4, 589843, 262144, 2, 655379, 262144, 2, 393236, 0, 2, 589850, 458752, 2, 589851, 327680, 1, 589852, 393216, 1, 524314, 196608, 4, 458778, 196608, 4, 393242, 196608, 4, 327706, 196608, 3, 458769, 524288, 1, 458768, 327680, 1, 458767, 262144, 1, 524305, 458752, 2)
+
+[node name="Goal" parent="TileMap" instance=ExtResource("2_m3bg1")]
+position = Vector2(880, 274)
+
+[node name="Postman" parent="." instance=ExtResource("3_36omg")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(740, 382)
+
+[node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("4_yqv5j")]
+
+[node name="PressurePlate" parent="." instance=ExtResource("5_l03gh")]

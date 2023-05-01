@@ -11,6 +11,8 @@ TODO
 - door sound
 - button sound
 
+- sitting dog
+
 - main menu
 - level selection
     - display stars and game state
@@ -19,10 +21,13 @@ TODO
 - Dog time penalty ?
 
 Bugs
+- Sliding issue
 - Bug if two dogs hunting the same parcel at the same time
+- Jump at tower level is too hard
 - Mouse focus issues
 - Glitch throw throught walls (level 2)
-- Resolution issue
+- Resolution issue, again (1920 x 1080)
+- Slide collision box
 
 
 The team
@@ -39,3 +44,7 @@ Cookie - Barking ?
 No animal was hurt in the process of making this game
 
 (Sprite chien)
+
+
+3 haut
+4 longueur

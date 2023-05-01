@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cgevd3egi8n77"]
+
+[ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_nc5pn"]
+[ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_a3fn8"]
+[ext_resource type="PackedScene" uid="uid://da33kxo3iwegf" path="res://prefabs/postman.tscn" id="3_vbyvf"]
+[ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="4_1ufvf"]
+[ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_lcwxm"]
+[ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="6_7l0mg"]
+
+[node name="Level6" type="Node"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_nc5pn")
+format = 2
+layer_0/tile_data = PackedInt32Array(131071, 65536, 4, 196607, 65536, 4, 262143, 65536, 4, 327679, 65536, 4, 262144, 65536, 4, 262145, 65536, 4, 262146, 65536, 4, 262147, 65536, 4, 262148, 65536, 4, 262149, 65536, 4, 131081, 65536, 4, 131082, 65536, 4, 131083, 65536, 4, 14, 65536, 4, 65550, 65536, 4, 131086, 65536, 4, 196622, 65536, 4, 262158, 65536, 4, 327694, 65536, 4, 393230, 65536, 4, 458766, 65536, 4, 524302, 65536, 4, 589838, 65536, 4, 655374, 65536, 4, 655359, 65536, 4, 720895, 65536, 4, 786431, 65536, 4, 851967, 65536, 4, 917503, 65536, 4, 983039, 65536, 4, 917504, 65536, 4, 917505, 65536, 4, 917506, 65536, 4, 917507, 65536, 4, 917508, 65536, 4, 917509, 65536, 4, 917510, 65536, 4, 917511, 65536, 4, 917512, 65536, 4, 917513, 65536, 4, 917514, 65536, 4, 917515, 65536, 4, 917516, 65536, 4, 917517, 65536, 4, 917518, 65536, 4, 917519, 65536, 4, 917520, 65536, 4, 917521, 65536, 4, 917522, 65536, 4, 917523, 65536, 4, 917524, 65536, 4, 917525, 65536, 4, 917526, 65536, 4, 917527, 65536, 4, 917528, 65536, 4, 917529, 65536, 4, 851993, 65536, 4, 786457, 65536, 4, 720921, 65536, 4, 655385, 65536, 4, 589849, 65536, 4, 524313, 65536, 4, 458777, 65536, 4, 393241, 65536, 4, 327705, 65536, 4, 262169, 65536, 4, 196633, 65536, 4, 131097, 65536, 4, 720920, 65536, 4, 720919, 65536, 4, 589844, 65536, 4, 589843, 65536, 4, 458768, 65536, 4, 458767, 65536, 4, 131090, 65536, 4, 196626, 65536, 4, 262162, 65536, 4, 262163, 65536, 4, 262164, 65536, 4, 262165, 65536, 4, 196629, 65536, 4, 131093, 65536, 4, 65535, 65536, 4, -1, 65536, 4, -65536, 65536, 4, -65535, 65536, 4, -65534, 65536, 4, -65533, 65536, 4, -65532, 65536, 4, -65531, 65536, 4, -65530, 65536, 4, -65529, 65536, 4, -65528, 65536, 4, -65527, 65536, 4, -65526, 65536, 4, -65525, 65536, 4, -65524, 65536, 4, -65523, 65536, 4, -65522, 65536, 4, 851978, 65536, 4, 851979, 65536, 4, 851980, 65536, 4, 851981, 65536, 4, 851982, 65536, 4, 851977, 65536, 4, 851983, 65536, 4, 655365, 65536, 4, 655366, 65536, 4, 655363, 65536, 4, 655364, 65536, 4, 655367, 65536, 4, 655368, 65536, 4, 655369, 65536, 4, 655370, 65536, 4, 655371, 65536, 4, 655372, 65536, 4, 655373, 65536, 4, 262150, 0, 2, 327687, 0, 2, 393224, 0, 2, 458761, 0, 2)
+
+[node name="Goal" parent="TileMap" instance=ExtResource("2_a3fn8")]
+position = Vector2(640, 112)
+
+[node name="Postman" parent="." instance=ExtResource("3_vbyvf")]
+position = Vector2(30, 108)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(449, 296)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(448, 222)
+texture = ExtResource("4_1ufvf")
+
+[node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_lcwxm")]
+star2_time = 12.0
+star3_time = 8.0
+
+[node name="Dog" parent="." instance=ExtResource("6_7l0mg")]
+position = Vector2(309, 45)
+idle = true
+
+[node name="Dog2" parent="." instance=ExtResource("6_7l0mg")]
+position = Vector2(-12, 267)
+idle = true
+flip = true

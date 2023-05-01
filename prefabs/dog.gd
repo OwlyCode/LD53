@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 
 @export var patrol_distance = 10.0
+@export var idle = false
+@export var flip = false
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
@@ -39,6 +41,12 @@ func _ready():
 	$RunningParticles.emitting = false
 
 func _physics_process(delta):
+
+	if going_left and not flip:
+		$DetectionZone.scale.x = 1
+	else:
+		$DetectionZone.scale.x = -1
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -53,8 +61,11 @@ func _physics_process(delta):
 	# if direction:
 	# 	velocity.x = direction * SPEED
 	# else:
-	if happy:
-		$AnimatedSprite2D.play("idle")
+	if happy or (idle and not angry and not caught):
+		if flip:
+			$AnimatedSprite2D.play("idle_right")
+		else:
+			$AnimatedSprite2D.play("idle_left")
 	elif caught:
 		$AnimatedSprite2D.play("caught_parcel")
 		inertia = 0
@@ -65,7 +76,7 @@ func _physics_process(delta):
 			happy = true
 			rethrow()
 
-	elif not angry and not ended:
+	elif not angry and not ended and not idle:
 		if going_left:
 			velocity.x = -20
 			$AnimatedSprite2D.play("walk_left")
@@ -79,10 +90,10 @@ func _physics_process(delta):
 			going_left = true
 	elif not ended:
 		if going_left:
-			inertia = lerpf(inertia, min_inertia, 1.5 * delta)
+			inertia = lerpf(inertia, min_inertia, 1.25 * delta)
 			$AnimatedSprite2D.play("charge_left")
 		else:
-			inertia = lerpf(inertia, max_inertia, 1.5 * delta)
+			inertia = lerpf(inertia, max_inertia, 1.25 * delta)
 			$AnimatedSprite2D.play("charge_right")
 
 		if position.x < target.position.x:
@@ -95,7 +106,7 @@ func _physics_process(delta):
 	else:
 		inertia = 0
 		velocity = Vector2.ZERO
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("idle_left")
 
 	if not angry:
 		inertia = 0

@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 200.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -430.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -77,7 +77,7 @@ func _physics_process(delta):
 	if not pitching:
 		pitch_scale = clampf(pitch_scale + delta * 1.7, 0.25, 1.0)
 
-	$MusicLoop.pitch_scale = pitch_scale
+	get_node("/root/Game/MusicLoop").pitch_scale = pitch_scale
 
 	if has_parcel and not ended and Input.is_action_pressed("shoot") and not shoot_canceled:
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()

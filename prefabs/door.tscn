@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://wbr5opqbesl8"]
+
+[ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="1_eojau"]
+[ext_resource type="Script" path="res://prefabs/door.gd" id="1_lmkub"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nc3xc"]
+atlas = ExtResource("1_eojau")
+region = Rect2(224, 156, 32, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_euxlc"]
+size = Vector2(32, 8)
+
+[node name="Door" type="StaticBody2D"]
+collision_layer = 7
+collision_mask = 7
+script = ExtResource("1_lmkub")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_nc3xc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_euxlc")

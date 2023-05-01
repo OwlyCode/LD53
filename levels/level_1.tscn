@@ -19,9 +19,6 @@ layer_0/tile_data = PackedInt32Array(720908, 524288, 1, 720909, 524288, 1, 72091
 [node name="Postman" parent="." instance=ExtResource("3_psdkh")]
 position = Vector2(146, 336)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(449, 296)
-
 [node name="Tutorial" type="RichTextLabel" parent="."]
 offset_left = 129.0
 offset_top = 134.0
@@ -44,3 +41,6 @@ script = ExtResource("4_caal0")
 z_index = -1
 position = Vector2(448, 222)
 texture = ExtResource("6_vrvoy")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(449, 296)

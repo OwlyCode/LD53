@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://prefabs/generic_ui.gd" id="1_sfwv1"]
 [ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="2_2lwej"]
 [ext_resource type="Texture2D" uid="uid://cr12t1xl3v47j" path="res://art/fix-emoji.png" id="3_ww7b3"]
-[ext_resource type="AudioStream" uid="uid://ctdra8x5jbuyh" path="res://art/star.ogg" id="4_euqoi"]
-[ext_resource type="AudioStream" uid="uid://ml32lskfx8ve" path="res://art/3star.ogg" id="5_gwn8y"]
-[ext_resource type="AudioStream" uid="uid://dupqcqir1lt5y" path="res://art/parcel.wav" id="6_neunq"]
+[ext_resource type="AudioStream" uid="uid://c6svbxbeuoq2b" path="res://art/stamp.wav" id="4_36tc0"]
+[ext_resource type="AudioStream" uid="uid://db4qswj8300ed" path="res://art/Timbre_3_v7_ogg.ogg" id="5_7gmph"]
+[ext_resource type="AudioStream" uid="uid://byn0xyp7vg4vv" path="res://art/score_line.wav" id="6_c04rg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57gq7"]
 atlas = ExtResource("3_ww7b3")
@@ -140,17 +140,17 @@ layout_mode = 2
 texture = SubResource("AtlasTexture_j4is4")
 
 [node name="StarSound1" type="AudioStreamPlayer" parent="Score"]
-stream = ExtResource("4_euqoi")
+stream = ExtResource("4_36tc0")
 
 [node name="StarSound2" type="AudioStreamPlayer" parent="Score"]
-stream = ExtResource("4_euqoi")
+stream = ExtResource("4_36tc0")
 
 [node name="StarSound3" type="AudioStreamPlayer" parent="Score"]
-stream = ExtResource("5_gwn8y")
+stream = ExtResource("5_7gmph")
+volume_db = 4.0
 
 [node name="ParcelSound" type="AudioStreamPlayer" parent="Score"]
-stream = ExtResource("6_neunq")
-volume_db = 3.622
+stream = ExtResource("6_c04rg")
 
 [node name="Buttons" type="HBoxContainer" parent="."]
 anchors_preset = 8
@@ -207,6 +207,7 @@ theme_override_font_sizes/font_size = 16
 text = "00:03:500"
 
 [node name="Star5" type="TextureRect" parent="Goals/Label2"]
+layout_mode = 0
 offset_left = -43.0
 offset_top = -2.0
 offset_right = -8.0
@@ -222,6 +223,7 @@ theme_override_font_sizes/font_size = 16
 text = "00:03:500"
 
 [node name="Star5" type="TextureRect" parent="Goals/Label3"]
+layout_mode = 0
 offset_left = -47.0
 offset_top = -3.0
 offset_right = -4.0

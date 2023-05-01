@@ -4,7 +4,10 @@ var levels = [
 	preload("res://levels/level_1.tscn"),
 	preload("res://levels/level_2.tscn"),
 	preload("res://levels/level_3.tscn"),
+	preload("res://levels/level_5.tscn"),
+	preload("res://levels/level_6.tscn"),
 	preload("res://levels/level_10.tscn"),
+	preload("res://levels/level_99.tscn"),
 	preload("res://levels/level_x.tscn")
 ]
 
@@ -27,7 +30,8 @@ func restart():
 			x.queue_free()
 		else:
 			for y in x.get_children():
-				y.queue_free()
+				if y.name != "MusicLoop":
+					y.queue_free()
 
 	var cl_color = RenderingServer.get_default_clear_color()
 	RenderingServer.set_default_clear_color(Color.BLACK)

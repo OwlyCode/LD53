@@ -79,7 +79,7 @@ func end_level():
 
 		await get_tree().create_timer(0.3).timeout
 		$Buttons.visible = true
-		get_node("Score/ParcelSound").play()
+		#get_node("Score/ParcelSound").play()
 
 
 func _process(delta):

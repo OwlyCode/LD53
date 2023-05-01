@@ -1,10 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://s180r8hyt7wo"]
 
 [ext_resource type="Script" path="res://GameController.gd" id="1_7lbgg"]
-[ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="2_47cnl"]
+[ext_resource type="AudioStream" uid="uid://budw5xyxplu46" path="res://art/level.wav" id="2_1fafo"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-13, -2)
 script = ExtResource("1_7lbgg")
 
-[node name="Dog" parent="." instance=ExtResource("2_47cnl")]
+[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_1fafo")
+volume_db = -5.0
+autoplay = true

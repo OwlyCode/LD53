@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dtsnp7klunf85"]
+[gd_scene load_steps=23 format=3 uid="uid://dtsnp7klunf85"]
 
 [ext_resource type="Texture2D" uid="uid://dqimlhwotd006" path="res://art/dog.png" id="1_lfwhr"]
 [ext_resource type="Script" path="res://prefabs/dog.gd" id="1_lpdk5"]
@@ -34,6 +34,10 @@ region = Rect2(336, 32, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_tymg4"]
 atlas = ExtResource("1_lfwhr")
 region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fohb0"]
+atlas = ExtResource("1_lfwhr")
+region = Rect2(0, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wqm3n"]
 atlas = ExtResource("1_lfwhr")
@@ -99,7 +103,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_tymg4")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idle_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fohb0")
+}],
+"loop": true,
+"name": &"idle_right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -142,7 +154,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d4k6w"]
-size = Vector2(157, 287)
+size = Vector2(128, 256)
 
 [sub_resource type="Curve" id="Curve_iceds"]
 max_value = 5.0
@@ -157,7 +169,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.309804)
 radius = 13.0384
 
 [node name="Dog" type="CharacterBody2D" groups=["dog"]]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_lpdk5")
 
@@ -168,15 +180,14 @@ shape = SubResource("CapsuleShape2D_6pfm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ffsnu")
-animation = &"caught_parcel"
-frame_progress = 0.275881
+animation = &"idle_right"
 
 [node name="DetectionZone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionZone"]
-position = Vector2(-89.5, 0.5)
+position = Vector2(-90, 0)
 shape = SubResource("RectangleShape2D_d4k6w")
 
 [node name="RunningParticles" type="CPUParticles2D" parent="."]

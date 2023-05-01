@@ -1,10 +1,9 @@
-[gd_scene load_steps=32 format=3 uid="uid://da33kxo3iwegf"]
+[gd_scene load_steps=31 format=3 uid="uid://da33kxo3iwegf"]
 
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1l7os"]
 [ext_resource type="Texture2D" uid="uid://r6k62ieyusc4" path="res://art/character.png" id="2_wrm1m"]
 [ext_resource type="Texture2D" uid="uid://bm1obn5jtkhnq" path="res://art/line.png" id="3_w10uu"]
 [ext_resource type="AudioStream" uid="uid://bybqo1q6dhgh8" path="res://art/pickup.wav" id="5_jyd32"]
-[ext_resource type="AudioStream" uid="uid://budw5xyxplu46" path="res://art/level.wav" id="5_sow63"]
 [ext_resource type="AudioStream" uid="uid://88hquwb5lwu" path="res://art/jump.wav" id="6_85u6h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c77hw"]
@@ -282,11 +281,6 @@ position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_aj0ov")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
-
-[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_sow63")
-volume_db = -5.0
-autoplay = true
 
 [node name="Pickup" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_jyd32")

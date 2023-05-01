@@ -11,7 +11,7 @@ var selector = preload("res://level_select.tscn")
 
 var levels = [
 	# Debug
-	preload("res://levels/level_S3.tscn"),
+	preload("res://levels/level_S6.tscn"),
 
 	# Tutorial
 	preload("res://levels/level_A1.tscn"),

@@ -177,6 +177,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6pfm3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_ffsnu")
 animation = &"idle_right"
 

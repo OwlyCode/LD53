@@ -248,6 +248,7 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_c77hw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
 sprite_frames = SubResource("SpriteFrames_ugsvq")
 animation = &"carrying_walk_left"
 

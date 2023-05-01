@@ -11,6 +11,7 @@ region = Rect2(224, 156, 32, 8)
 size = Vector2(32, 8)
 
 [node name="Door" type="StaticBody2D"]
+z_index = 1
 collision_layer = 7
 collision_mask = 7
 script = ExtResource("1_lmkub")

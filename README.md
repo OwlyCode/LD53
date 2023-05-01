@@ -8,6 +8,7 @@ TODO
         - display stars and unkocked levels
     - audio control
     - credits
+    - last level sends to credits
 
 - Better look for levels
     - City theme
@@ -16,7 +17,6 @@ TODO
 
 - Bonus mechanics
     - Grandma
-    - Camera
 
 - slide sound
 - door sound
@@ -24,6 +24,8 @@ TODO
 - shoot parcel sound
 
 Bugs
+- Scene cleanup issues
+- Door mechanics not introduced well
 - Dog catch while aiming
 - Dog catch mid-air
 - Jump at tower level is too hard

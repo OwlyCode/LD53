@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://dc67jgeevxx6c"]
+
+[ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="1_pwy6l"]
+[ext_resource type="Script" path="res://prefabs/level_button.gd" id="2_b4c4b"]
+[ext_resource type="Texture2D" uid="uid://cr12t1xl3v47j" path="res://art/fix-emoji.png" id="2_ujkd3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d72ju"]
+atlas = ExtResource("2_ujkd3")
+region = Rect2(109, 11, 22, 26)
+
+[node name="Level1" type="Button"]
+custom_minimum_size = Vector2(100, 100)
+theme = ExtResource("1_pwy6l")
+text = "Level 1"
+script = ExtResource("2_b4c4b")
+
+[node name="Star1" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 76.0
+offset_right = 32.0
+offset_bottom = 103.0
+texture = SubResource("AtlasTexture_d72ju")
+stretch_mode = 5
+
+[node name="Star2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 71.0
+offset_right = 64.0
+offset_bottom = 98.0
+texture = SubResource("AtlasTexture_d72ju")
+stretch_mode = 5
+
+[node name="Star3" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 76.0
+offset_right = 95.0
+offset_bottom = 103.0
+texture = SubResource("AtlasTexture_d72ju")
+stretch_mode = 5
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

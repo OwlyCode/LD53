@@ -97,19 +97,19 @@ func _process(delta):
 func _on_next_level_button_up():
 	get_node("../Postman").ended = true
 	await get_tree().create_timer(0.1).timeout
-	get_node("/root/Game").next_level()
+	GameState.next_level()
 
 
 func _on_retry_button_up():
 	get_node("../Postman").ended = true
 	await get_tree().create_timer(0.1).timeout
-	get_node("/root/Game").restart()
+	GameState.restart_level()
 
 
 func _on_restart_button_up():
 	get_node("../Postman").ended = true
 	await get_tree().create_timer(0.1).timeout
-	get_node("/root/Game").restart()
+	GameState.restart_level()
 
 
 

@@ -63,7 +63,7 @@ func _physics_process(delta):
 	Engine.time_scale = 1.0
 
 	if Input.is_action_just_pressed("restart"):
-		get_node("/root/Game").restart()
+		GameState.restart_level()
 
 	var pitching = false
 
@@ -77,7 +77,7 @@ func _physics_process(delta):
 	if not pitching:
 		pitch_scale = clampf(pitch_scale + delta * 1.7, 0.25, 1.0)
 
-	get_node("/root/Game/MusicLoop").pitch_scale = pitch_scale
+	#get_node("/root/Game/MusicLoop").pitch_scale = pitch_scale
 
 	if has_parcel and not ended and Input.is_action_pressed("shoot") and not shoot_canceled:
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -102,7 +102,7 @@ func _physics_process(delta):
 		has_parcel = false
 		$Line2D.visible = false
 		var x = parcel.instantiate();
-		get_tree().root.add_child(x)
+		get_parent().add_child(x)
 		on_first_move()
 		aiming = false
 		get_tree().call_group("dog", "switch_target", x)

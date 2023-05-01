@@ -1,0 +1,147 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf2j3baleto7b"]
+
+[ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="1_o65o5"]
+[ext_resource type="AudioStream" uid="uid://bqs2u3wsjq7px" path="res://art/level_start.wav" id="2_eiwny"]
+[ext_resource type="PackedScene" uid="uid://dc67jgeevxx6c" path="res://prefabs/level_button.tscn" id="3_l41xd"]
+[ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="3_uoy5n"]
+
+[node name="LevelSelect" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = -33.0
+offset_top = 356.0
+offset_right = 1044.0
+offset_bottom = 657.0
+texture = ExtResource("3_uoy5n")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -294.0
+offset_top = -236.0
+offset_right = 294.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o65o5")
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = 12.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o65o5")
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 5
+
+[node name="Level1" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+
+[node name="Level2" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 1
+
+[node name="Level3" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 2
+
+[node name="Level4" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 3
+
+[node name="Level5" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 4
+
+[node name="Level6" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 5
+
+[node name="Level7" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 6
+
+[node name="Level8" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 7
+
+[node name="Level9" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 8
+
+[node name="Level10" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 9
+
+[node name="Level11" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 10
+
+[node name="Level12" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 11
+
+[node name="Level13" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 12
+
+[node name="Level14" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 13
+
+[node name="Level15" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 14
+
+[node name="Level16" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 15
+
+[node name="Level17" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 16
+
+[node name="Level18" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 17
+
+[node name="Level19" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 18
+
+[node name="Level20" parent="CanvasLayer/Panel/GridContainer" instance=ExtResource("3_l41xd")]
+layout_mode = 2
+level = 19
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -188.5
+offset_top = 24.0
+offset_right = 188.5
+offset_bottom = 78.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave][center]Select a level[/center][/wave]"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_eiwny")
+autoplay = true

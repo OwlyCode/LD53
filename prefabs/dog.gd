@@ -161,7 +161,7 @@ func _on_bite_zone_body_entered(body):
 
 func rethrow():
 	var x = parcel.instantiate();
-	get_tree().root.add_child(x)
+	get_parent().add_child(x)
 	get_tree().call_group("dog", "switch_target", x)
 
 	x.transform = transform

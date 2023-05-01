@@ -16,7 +16,9 @@ var levels = [
 	preload("res://levels/level_A3.tscn"),
 
 	# Easy levels
-	# ...
+	preload("res://levels/level_A4.tscn"),
+	preload("res://levels/level_A5.tscn"),
+	preload("res://levels/level_A6.tscn"),
 
 	# Dog intro
 	preload("res://levels/level_D1.tscn"),

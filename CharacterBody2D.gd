@@ -37,7 +37,7 @@ func reach_goal():
 
 func update_trajectory(delta, initial_velocity):
 	var line = $Line2D
-	var max_points = 512
+	var max_points = 1024
 
 	line.clear_points()
 	var pos = Vector2.ZERO
@@ -45,7 +45,7 @@ func update_trajectory(delta, initial_velocity):
 
 	for i in max_points:
 		line.add_point(pos)
-		vel.y += 0.55 * gravity * delta
+		vel.y += 0.57 * gravity * delta
 		pos += vel * delta
 
 		var query = PhysicsPointQueryParameters2D.new()
@@ -92,7 +92,7 @@ func _physics_process(delta):
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
 		update_trajectory(0.005, shoot_direction * shoot_power)
 		$Line2D.visible = true
-		shoot_power = get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
+		shoot_power = initial_shoot_power + get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
 		shoot_power = clampf(shoot_power, 0 , 800)
 		on_first_move()
 		aiming = true

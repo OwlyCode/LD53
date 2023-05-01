@@ -9,6 +9,6 @@ TODO
 - web port
 
 Bugs
-- Resolution issue, again (1920 x 1080)
+- Random music pause ?
 - Browser crash
 - Slide bug when sliding without pressing S anymore

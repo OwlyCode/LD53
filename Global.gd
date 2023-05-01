@@ -1,14 +1,13 @@
 extends Node
 
-var current_level = 5
-var unlocked_level = 8
-
-var max_levels = 20
+var current_level = 0
+var unlocked_level = 0
 
 var star_memory = []
 var current_scene = null
 
-var selector = 	preload("res://level_select.tscn")
+var m_menu = preload("res://main_menu.tscn")
+var selector = preload("res://level_select.tscn")
 
 var levels = [
 	# Debug
@@ -18,6 +17,9 @@ var levels = [
 	preload("res://levels/level_A1.tscn"),
 	preload("res://levels/level_A2.tscn"),
 	preload("res://levels/level_A3.tscn"),
+
+	# Easy levels
+	# ...
 
 	# Dog intro
 	preload("res://levels/level_D1.tscn"),
@@ -44,15 +46,25 @@ var levels = [
 ]
 
 var loading = false
+var game_music = AudioStreamPlayer.new()
 
 func _ready():
-	star_memory.resize(max_levels)
+	star_memory.resize(len(levels))
 	star_memory.fill(0)
 
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
 
+	game_music.stream = preload("res://art/level.wav")
+	game_music.autoplay = true
+
+	add_child(game_music)
+	game_music.stop()
+
 func set_level(level):
+	if not game_music.playing:
+		game_music.play()
+
 	if loading:
 		return
 
@@ -61,7 +73,19 @@ func set_level(level):
 	GameState.goto_scene(levels[current_level])
 
 func level_select():
+	game_music.stop()
 	goto_scene(selector)
+
+func main_menu():
+	game_music.stop()
+	goto_scene(m_menu)
+
+func credits():
+	game_music.stop()
+	pass
+
+func start():
+	set_level(0)
 
 func win_level(stars):
 	star_memory[current_level] = max(star_memory[current_level], stars)
@@ -69,7 +93,7 @@ func win_level(stars):
 		unlocked_level += 1
 
 func next_level():
-	if current_level < max_levels:
+	if current_level < len(levels):
 		set_level(current_level + 1)
 
 func restart_level():

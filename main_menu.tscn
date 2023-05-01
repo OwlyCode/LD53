@@ -1,0 +1,88 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcwym8jnhrasm"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_hx2se"]
+[ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="1_rutra"]
+[ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="2_t0bjk"]
+[ext_resource type="AudioStream" uid="uid://cxr0toqcv0q6m" path="res://art/gameloop.wav" id="4_46bnj"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_hx2se")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = -33.0
+offset_top = 356.0
+offset_right = 1044.0
+offset_bottom = 657.0
+texture = ExtResource("1_rutra")
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -235.5
+offset_top = -183.0
+offset_right = 235.5
+offset_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t0bjk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_t0bjk")
+theme_override_constants/separation = 16
+
+[node name="Start" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_t0bjk")
+text = "Start"
+
+[node name="LevelSelect" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_t0bjk")
+text = "Level select"
+
+[node name="Credits" type="Button" parent="CanvasLayer/Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_t0bjk")
+text = "Credits"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -185.0
+offset_top = 37.0
+offset_right = 192.0
+offset_bottom = 109.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[wave][center]Parcel Dunk[/center][/wave]"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_46bnj")
+autoplay = true
+
+[connection signal="button_up" from="CanvasLayer/Panel/VBoxContainer/Start" to="." method="_on_start_button_up"]
+[connection signal="button_up" from="CanvasLayer/Panel/VBoxContainer/LevelSelect" to="." method="_on_level_select_button_up"]
+[connection signal="button_up" from="CanvasLayer/Panel/VBoxContainer/Credits" to="." method="_on_credits_button_up"]

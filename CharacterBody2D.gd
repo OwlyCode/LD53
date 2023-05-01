@@ -65,6 +65,10 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("restart"):
 		GameState.restart_level()
 
+
+	if Input.is_action_just_pressed("level_select"):
+		GameState.level_select()
+
 	var pitching = false
 
 	if has_parcel and not is_on_floor() and not ended:

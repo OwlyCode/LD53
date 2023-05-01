@@ -188,16 +188,6 @@ layout_mode = 2
 theme = ExtResource("2_2lwej")
 text = "Next level"
 
-[node name="Level selection" type="Button" parent="Buttons"]
-layout_mode = 2
-theme = ExtResource("2_2lwej")
-text = "Level select"
-
-[node name="Retry" type="Button" parent="Buttons"]
-layout_mode = 2
-theme = ExtResource("2_2lwej")
-text = "Retry"
-
 [node name="Goals" type="VBoxContainer" parent="."]
 offset_left = 51.0
 offset_top = 10.0
@@ -255,5 +245,3 @@ stretch_mode = 3
 [connection signal="button_up" from="Restart" to="." method="_on_restart_button_up"]
 [connection signal="button_up" from="LevelSelect2" to="." method="_on_level_select_2_button_up"]
 [connection signal="button_up" from="Buttons/NextLevel" to="." method="_on_next_level_button_up"]
-[connection signal="button_up" from="Buttons/Level selection" to="." method="_on_level_selection_button_up"]
-[connection signal="button_up" from="Buttons/Retry" to="." method="_on_retry_button_up"]

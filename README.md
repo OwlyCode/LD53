@@ -1,11 +1,6 @@
 TODO
-- making levels
-    - tower jump too hard
-
 - UI
     - main menu
-    - level selection
-        - display stars and unkocked levels
     - audio control
     - credits
     - last level sends to credits

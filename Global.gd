@@ -8,6 +8,7 @@ var current_scene = null
 
 var m_menu = preload("res://main_menu.tscn")
 var selector = preload("res://level_select.tscn")
+var credits_scene = preload("res://credits.tscn")
 
 var levels = [
 	# Tutorial
@@ -90,7 +91,7 @@ func main_menu():
 
 func credits():
 	game_music.stop()
-	pass
+	goto_scene(credits_scene)
 
 func start():
 	set_level(0)
@@ -101,8 +102,10 @@ func win_level(stars):
 		unlocked_level += 1
 
 func next_level():
-	if current_level < len(levels):
+	if current_level < len(levels) - 1:
 		set_level(current_level + 1)
+	else:
+		credits()
 
 func restart_level():
 	set_level(current_level)

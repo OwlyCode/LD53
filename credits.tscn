@@ -1,0 +1,129 @@
+[gd_scene load_steps=12 format=3 uid="uid://d1iu13wtyhig6"]
+
+[ext_resource type="Script" path="res://credits.gd" id="1_kqi5e"]
+[ext_resource type="Texture2D" uid="uid://d3d0fkjg1nune" path="res://art/mima.png" id="2_urfji"]
+[ext_resource type="Texture2D" uid="uid://r6k62ieyusc4" path="res://art/character.png" id="3_0l188"]
+[ext_resource type="Theme" uid="uid://dgpmo26y5ibbf" path="res://theme.tres" id="3_13snq"]
+[ext_resource type="AudioStream" uid="uid://qaheo1nwlxqf" path="res://art/credits.ogg" id="4_741wq"]
+[ext_resource type="Texture2D" uid="uid://dqimlhwotd006" path="res://art/dog.png" id="4_m0msl"]
+
+[sub_resource type="Gradient" id="Gradient_w8712"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ep5ds"]
+gradient = SubResource("Gradient_w8712")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4g3w"]
+atlas = ExtResource("2_urfji")
+region = Rect2(3, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u2p4"]
+atlas = ExtResource("3_0l188")
+region = Rect2(3, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7h5f1"]
+atlas = ExtResource("4_m0msl")
+region = Rect2(437, 3, 43, 34)
+
+[node name="Credits" type="Node2D"]
+script = ExtResource("1_kqi5e")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ep5ds")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -348.0
+offset_top = 43.0
+offset_right = 374.0
+offset_bottom = 174.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 48
+bbcode_enabled = true
+text = "[center]Thanks for playing [wave][color=yellow]Parcel Dunk[/color][/wave][/center]"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -393.0
+offset_top = -176.0
+offset_right = 390.0
+offset_bottom = 311.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]
+[b]The team[/b]
+[color=green]EwileCoyote[/color] - Pixel art
+[color=green]Makse[/color] - Music, Sound design
+[color=green]OwlyCode[/color] - Programing, Level design
+
+[b]Special thanks[/b]
+[color=green]Enerys[/color] - Design ideas
+[color=green]Jako31[/color] - Testing, Level design ideas
+[color=green]Tilou[/color] - Testing, Level design ideas
+[/center]"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 772.0
+offset_top = 306.0
+offset_right = 901.0
+offset_bottom = 497.0
+texture = SubResource("AtlasTexture_h4g3w")
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer"]
+offset_left = 164.0
+offset_top = 174.0
+offset_right = 282.0
+offset_bottom = 348.0
+texture = SubResource("AtlasTexture_3u2p4")
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer"]
+offset_left = -107.0
+offset_top = 597.0
+offset_right = 193.0
+offset_bottom = 774.0
+rotation = -0.523598
+texture = SubResource("AtlasTexture_7h5f1")
+stretch_mode = 5
+
+[node name="Back" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -49.0
+offset_right = 79.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("3_13snq")
+theme_override_font_sizes/font_size = 16
+text = "Back to main menu"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_741wq")
+autoplay = true
+
+[connection signal="button_up" from="CanvasLayer/Back" to="." method="_on_back_button_up"]

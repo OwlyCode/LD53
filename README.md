@@ -9,9 +9,8 @@ TODO
     - Sewages
     - sitting dog
 
-- Bonus mechanics
-    - Grandma
-
+- dog sound
+- throw sound
 - slide sound
 - door sound
 - button sound
@@ -19,14 +18,8 @@ TODO
 
 Bugs
 - Door mechanics not introduced well
-- Dog catch while aiming
-- Dog catch mid-air
-- Bug if two dogs hunting the same parcel at the same time
-- Sliding issue
-- Mouse focus issues
-- Resolution issue, again (1920 x 1080)
 - Slide collision box
-
+- Resolution issue, again (1920 x 1080)
 
 The team
 EwileCoyotte - Pixel art
@@ -42,3 +35,8 @@ Cookie - Barking ?
 No animal was hurt in the process of making this game
 
 (dog sprite)
+
+
+
+- Bonus mechanics
+    - Grandma

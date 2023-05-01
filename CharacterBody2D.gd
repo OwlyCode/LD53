@@ -62,6 +62,8 @@ func _physics_process(delta):
 
 	if not has_parcel:
 		prefix = ""
+		aiming = false
+		$Line2D.visible = false
 
 	Engine.time_scale = 1.0
 

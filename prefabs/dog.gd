@@ -42,16 +42,29 @@ func _ready():
 
 func _physics_process(delta):
 
-	if going_left and not idle:
-		if flip:
-			$DetectionZone.scale.x = -1
+	if idle:
+		if going_left:
+			if flip:
+				$DetectionZone.scale.x = 1
+			else:
+				$DetectionZone.scale.x = -1
 		else:
-			$DetectionZone.scale.x = 1
+			if flip:
+				$DetectionZone.scale.x = -1
+			else:
+				$DetectionZone.scale.x = 1
 	else:
-		if flip:
-			$DetectionZone.scale.x = 1
+		if going_left:
+			if flip:
+				$DetectionZone.scale.x = 1
+			else:
+				$DetectionZone.scale.x = -1
 		else:
-			$DetectionZone.scale.x = -1
+			if flip:
+				$DetectionZone.scale.x = -1
+			else:
+				$DetectionZone.scale.x = 1
+
 
 	$DetectionZone.visible = not angry and not happy and not ended and not caught
 
@@ -77,7 +90,7 @@ func _physics_process(delta):
 	elif caught:
 		$AnimatedSprite2D.play("caught_parcel")
 		inertia = 0
-		velocity = Vector2.ZERO
+		velocity.x = 0
 		rethrow_timeout -= delta
 
 		if rethrow_timeout < 0:
@@ -113,7 +126,7 @@ func _physics_process(delta):
 		velocity.x = inertia
 	else:
 		inertia = 0
-		velocity = Vector2.ZERO
+		velocity.x = 0
 		$AnimatedSprite2D.play("idle_left")
 
 	if not angry:

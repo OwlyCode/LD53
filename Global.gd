@@ -1,7 +1,7 @@
 extends Node
 
 var current_level = 0
-var unlocked_level = 0
+var unlocked_level = 10
 
 var star_memory = []
 var current_scene = null
@@ -11,7 +11,7 @@ var selector = preload("res://level_select.tscn")
 
 var levels = [
 	# Debug
-	#preload("res://levels/level_S6.tscn"),
+	preload("res://levels/level_S5.tscn"),
 
 	# Tutorial
 	preload("res://levels/level_A1.tscn"),

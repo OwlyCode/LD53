@@ -35,7 +35,7 @@ position = Vector2(449, 292)
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(448, 222)
+position = Vector2(448, 620)
 texture = ExtResource("6_dur05")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("7_kcb6p")]

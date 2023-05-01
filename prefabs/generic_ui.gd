@@ -14,7 +14,6 @@ func _ready():
 	$TimerBig.visible = false
 	$Score.visible = false
 	$Buttons.visible = false
-	get_node("Score/Parcel").visible = false
 	get_node("Score/Star1").visible = false
 	get_node("Score/Star2").visible = false
 	get_node("Score/Star3").visible = false
@@ -49,8 +48,14 @@ func end_level():
 		$Overlay.visible = true
 		$WellDone.visible = true
 
+
+		$WellDone.text = "[center][wave]Nice job![/wave][/center]"
+
+		if time < star2_time:
+			$WellDone.text = "[center][wave]Sweet![/wave][/center]"
+
 		if time < star3_time:
-			$WellDone.text = "[center][rainbow][wave]Well done![/wave][/rainbow][/center]"
+			$WellDone.text = "[center][rainbow][wave]Amazing![/wave][/rainbow][/center]"
 
 		await get_tree().create_timer(0.3).timeout
 		get_node("Score/ParcelSound").play()
@@ -60,25 +65,28 @@ func end_level():
 		# Score
 
 		await get_tree().create_timer(0.3).timeout
-		get_node("Score/Parcel").visible = true
-		get_node("Score/ParcelSound").play()
-
-		await get_tree().create_timer(0.3).timeout
 		get_node("Score/Star1").visible = true
 		get_node("Score/StarSound1").play()
 
 		var stars = 1
 
+		get_node("Score/Star2").self_modulate = Color.html("#88888888")
+		get_node("Score/Star3").self_modulate = Color.html("#88888888")
+
+		await get_tree().create_timer(0.3).timeout
+		get_node("Score/Star2").visible = true
+
 		if time < star2_time:
 			stars += 1
-			await get_tree().create_timer(0.3).timeout
-			get_node("Score/Star2").visible = true
+			get_node("Score/Star2").self_modulate = Color.html("#FFFFFFFF")
 			get_node("Score/StarSound2").play()
+
+		await get_tree().create_timer(0.3).timeout
+		get_node("Score/Star3").visible = true
 
 		if time < star3_time:
 			stars += 1
-			await get_tree().create_timer(0.3).timeout
-			get_node("Score/Star3").visible = true
+			get_node("Score/Star3").self_modulate = Color.html("#FFFFFFFF")
 			get_node("Score/StarSound3").play()
 
 		GameState.win_level(stars)

@@ -38,7 +38,7 @@ script = ExtResource("4_o57f4")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(448, 222)
+position = Vector2(448, 620)
 texture = ExtResource("6_5qe5n")
 
 [node name="Camera2D" type="Camera2D" parent="."]

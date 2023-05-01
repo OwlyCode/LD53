@@ -1,6 +1,5 @@
 TODO
 - UI
-    - main menu
     - audio control
     - credits
     - last level sends to credits
@@ -19,11 +18,9 @@ TODO
 - shoot parcel sound
 
 Bugs
-- Scene cleanup issues
 - Door mechanics not introduced well
 - Dog catch while aiming
 - Dog catch mid-air
-- Jump at tower level is too hard
 - Sliding issue
 - Bug if two dogs hunting the same parcel at the same time
 - Mouse focus issues

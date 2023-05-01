@@ -38,7 +38,7 @@ script = ExtResource("4_7l53w")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-position = Vector2(448, 222)
+position = Vector2(448, 620)
 texture = ExtResource("5_k31vg")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("6_u57ih")]

@@ -4,10 +4,8 @@ TODO
     - credits
     - last level sends to credits
 
-- Better look for levels
-    - City theme
-    - Sewages
-    - sitting dog
+- dog sleep
+- dog bark
 
 - dog sound
 - throw sound

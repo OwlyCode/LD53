@@ -10,9 +10,6 @@ var m_menu = preload("res://main_menu.tscn")
 var selector = preload("res://level_select.tscn")
 
 var levels = [
-	# Debug
-	preload("res://levels/level_S6.tscn"),
-
 	# Tutorial
 	preload("res://levels/level_A1.tscn"),
 	preload("res://levels/level_A2.tscn"),
@@ -55,7 +52,7 @@ func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
 
-	game_music.stream = preload("res://art/level.wav")
+	game_music.stream = preload("res://art/game_music.ogg")
 	game_music.autoplay = true
 
 	add_child(game_music)

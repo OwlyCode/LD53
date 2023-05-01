@@ -1,4 +1,6 @@
 extends StaticBody2D
 
 func plate_pressed():
-	queue_free()
+	$AudioStreamPlayer.play()
+	$Sprite2D.visible = false
+	collision_layer = 0

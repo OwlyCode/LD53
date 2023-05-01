@@ -1,11 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://s180r8hyt7wo"]
-
-[ext_resource type="AudioStream" uid="uid://budw5xyxplu46" path="res://art/level.wav" id="2_1fafo"]
+[gd_scene format=3 uid="uid://s180r8hyt7wo"]
 
 [node name="Game" type="Node2D"]
 position = Vector2(-13, -2)
-
-[node name="MusicLoop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_1fafo")
-volume_db = -5.0
-autoplay = true

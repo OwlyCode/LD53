@@ -21,8 +21,8 @@ Bugs
 - Door mechanics not introduced well
 - Dog catch while aiming
 - Dog catch mid-air
-- Sliding issue
 - Bug if two dogs hunting the same parcel at the same time
+- Sliding issue
 - Mouse focus issues
 - Resolution issue, again (1920 x 1080)
 - Slide collision box

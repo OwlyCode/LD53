@@ -61,7 +61,16 @@ func _ready():
 	add_child(game_music)
 	game_music.stop()
 
+func _process(_delta):
+	if Input.is_action_pressed("ui_cancel"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+	if Input.is_action_just_pressed("shoot"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+
+
 func set_level(level):
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 	if not game_music.playing:
 		game_music.play()
 
@@ -126,3 +135,6 @@ func _deferred_goto_scene(s):
 		# Optional, to make it compatible with the SceneTree.change_scene() API.
 		get_tree().set_current_scene(current_scene)
 		loading = false
+
+func music_pitch(p):
+	game_music.pitch_scale = p

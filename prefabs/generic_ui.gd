@@ -134,8 +134,10 @@ func camera_shake(intensity = 1, duration = 1):
 
 	for i in range(duration):
 		camera.position.x += intensity
+		camera.position.y += intensity
 		await get_tree().create_timer(0.1).timeout
 		camera.position.x -= intensity
+		camera.position.y -= intensity
 		await get_tree().create_timer(0.1).timeout
 
 

@@ -21,6 +21,9 @@ var pitch_scale = 1.0
 var aiming = false
 var shoot_canceled = false
 
+var jump_cooldown = 0.0
+var max_jump_cooldown = 0.3
+
 func _ready():
 	$AnimatedSprite2D.play()
 
@@ -81,7 +84,7 @@ func _physics_process(delta):
 	if not pitching:
 		pitch_scale = clampf(pitch_scale + delta * 1.7, 0.25, 1.0)
 
-	#get_node("/root/Game/MusicLoop").pitch_scale = pitch_scale
+	GameState.music_pitch(pitch_scale)
 
 	if has_parcel and not ended and Input.is_action_pressed("shoot") and not shoot_canceled:
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
@@ -143,8 +146,11 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
+	jump_cooldown = clampf(jump_cooldown - delta, -1, 1)
+
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and was_on_floor < 0.15 and not ended:
+	if Input.is_action_just_pressed("jump") and was_on_floor < 0.15 and not ended and jump_cooldown < 0.0:
+		jump_cooldown = max_jump_cooldown
 		$Jump.play()
 		on_first_move()
 		velocity.y = JUMP_VELOCITY

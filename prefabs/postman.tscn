@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://CharacterBody2D.gd" id="1_1l7os"]
 [ext_resource type="Texture2D" uid="uid://r6k62ieyusc4" path="res://art/character.png" id="2_wrm1m"]
 [ext_resource type="Texture2D" uid="uid://bm1obn5jtkhnq" path="res://art/line.png" id="3_w10uu"]
-[ext_resource type="AudioStream" uid="uid://bybqo1q6dhgh8" path="res://art/pickup.wav" id="5_jyd32"]
-[ext_resource type="AudioStream" uid="uid://88hquwb5lwu" path="res://art/jump.wav" id="6_85u6h"]
+[ext_resource type="AudioStream" uid="uid://bd5k26l0mkdf2" path="res://art/pick_parcel.ogg" id="4_5nwsp"]
+[ext_resource type="AudioStream" uid="uid://56swm5ijyu3x" path="res://art/jump.ogg" id="5_17x78"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c77hw"]
 radius = 7.0
@@ -283,9 +283,10 @@ shape = SubResource("CapsuleShape2D_aj0ov")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
 [node name="Pickup" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_jyd32")
+stream = ExtResource("4_5nwsp")
+volume_db = -6.0
 
 [node name="Jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_85u6h")
+stream = ExtResource("5_17x78")
 
 [connection signal="body_entered" from="PickupZone" to="." method="_on_pickup_zone_body_entered"]

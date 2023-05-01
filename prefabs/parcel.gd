@@ -35,8 +35,8 @@ func on_catch():
 
 
 func _on_body_entered(_body:Node):
-	var impact = linear_velocity.length() / 200
+	var impact = linear_velocity.length() / 100
 
 	if impact > 1:
-		get_tree().call_group("effects", "camera_shake", linear_velocity.x / 100)
+		get_tree().call_group("effects", "camera_shake", linear_velocity.x / 100, 1)
 		$AudioStreamPlayer.play()

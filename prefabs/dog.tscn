@@ -1,8 +1,9 @@
-[gd_scene load_steps=23 format=3 uid="uid://dtsnp7klunf85"]
+[gd_scene load_steps=26 format=3 uid="uid://dtsnp7klunf85"]
 
 [ext_resource type="Texture2D" uid="uid://dqimlhwotd006" path="res://art/dog.png" id="1_lfwhr"]
 [ext_resource type="Script" path="res://prefabs/dog.gd" id="1_lpdk5"]
 [ext_resource type="Texture2D" uid="uid://bg85m67akhfay" path="res://art/detection zone.png" id="3_uhhcw"]
+[ext_resource type="AudioStream" uid="uid://cee7sflyehtb1" path="res://art/bark.ogg" id="4_2cond"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6pfm3"]
 radius = 15.0
@@ -31,6 +32,14 @@ region = Rect2(240, 32, 48, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_d3s21"]
 atlas = ExtResource("1_lfwhr")
 region = Rect2(336, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y70wi"]
+atlas = ExtResource("1_lfwhr")
+region = Rect2(384, 32, 48, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fqqy"]
+atlas = ExtResource("1_lfwhr")
+region = Rect2(432, 32, 48, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tymg4"]
 atlas = ExtResource("1_lfwhr")
@@ -98,6 +107,17 @@ animations = [{
 "loop": true,
 "name": &"charge_right",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y70wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7fqqy")
+}],
+"loop": true,
+"name": &"happy",
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -179,7 +199,8 @@ shape = SubResource("CapsuleShape2D_6pfm3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ffsnu")
-animation = &"idle_right"
+animation = &"happy"
+frame_progress = 0.0347856
 
 [node name="DetectionZone" type="Area2D" parent="."]
 collision_layer = 0
@@ -215,6 +236,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BiteZone"]
 position = Vector2(-12, 0)
 shape = SubResource("CircleShape2D_bx4yt")
+
+[node name="Bark" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2cond")
 
 [connection signal="body_entered" from="DetectionZone" to="." method="_on_detection_zone_body_entered"]
 [connection signal="body_entered" from="BiteZone" to="." method="_on_bite_zone_body_entered"]

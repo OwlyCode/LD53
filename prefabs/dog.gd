@@ -82,7 +82,9 @@ func _physics_process(delta):
 	# if direction:
 	# 	velocity.x = direction * SPEED
 	# else:
-	if happy or (idle and not angry and not caught):
+	if happy:
+		$AnimatedSprite2D.play("happy")
+	elif (idle and not angry and not caught):
 		if flip:
 			$AnimatedSprite2D.play("idle_right")
 		else:
@@ -144,10 +146,12 @@ func _on_detection_zone_body_entered(body:Node2D):
 	if "has_parcel" in body and body.has_parcel:
 		angry = true
 		target = body
+		$Bark.play()
 
 	if "pickable" in body and body.pickable:
 		angry = true
 		target = body
+		$Bark.play()
 
 func switch_target(t):
 	if angry:
@@ -167,10 +171,16 @@ func _on_bite_zone_body_entered(body):
 		angry = false
 		caught = true
 
+		if not $Bark.playing:
+			$Bark.play()
+
 	if "pickable" in body and body.pickable:
 		body.on_catch()
 		angry = false
 		caught = true
+
+		if not $Bark.playing:
+			$Bark.play()
 
 func rethrow():
 	var x = parcel.instantiate();

@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://b201qcid7rcgl"]
+[gd_scene load_steps=8 format=3 uid="uid://b201qcid7rcgl"]
 
 [ext_resource type="Script" path="res://Goal.gd" id="1_lakxt"]
 [ext_resource type="Texture2D" uid="uid://cqvjgley3b0m7" path="res://art/poc.png" id="2_0x5k1"]
 [ext_resource type="AudioStream" uid="uid://b5igiw5px2cm0" path="res://art/goal.ogg" id="3_o5hbb"]
-[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="4_2m8rp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ribpl"]
 atlas = ExtResource("2_0x5k1")
@@ -18,33 +17,6 @@ colors = PackedColorArray(0, 1, 0, 1, 0.117647, 1, 0, 0.278431)
 [sub_resource type="Gradient" id="Gradient_v7f3n"]
 offsets = PackedFloat32Array(0, 0.251064, 0.493617, 0.744681, 1)
 colors = PackedColorArray(1, 0, 0.927743, 1, 1, 0, 0.0666666, 1, 0, 1, 0, 1, 1, 0.919283, 0, 1, 0, 0.0300589, 1, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qcgue"]
-atlas = ExtResource("4_2m8rp")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xpqpx"]
-atlas = ExtResource("4_2m8rp")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_al5fm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qcgue")
-}],
-"loop": true,
-"name": &"closed",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xpqpx")
-}],
-"loop": true,
-"name": &"open ",
-"speed": 5.0
-}]
 
 [node name="Goal" type="Node2D"]
 position = Vector2(752, 338)
@@ -99,14 +71,5 @@ color_initial_ramp = SubResource("Gradient_v7f3n")
 [node name="GoalSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_o5hbb")
 volume_db = -6.0
-
-[node name="Inbox" type="Node2D" parent="."]
-position = Vector2(20, 15)
-
-[node name="InboxSprite" type="AnimatedSprite2D" parent="Inbox"]
-position = Vector2(4, -15)
-rotation = 0.20944
-sprite_frames = SubResource("SpriteFrames_al5fm")
-animation = &"open "
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

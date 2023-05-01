@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://88df78ouaf4p"]
+
+[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="1_d1at5"]
+[ext_resource type="Script" path="res://prefabs/inbox.gd" id="1_yp867"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcgue"]
+atlas = ExtResource("1_d1at5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpqpx"]
+atlas = ExtResource("1_d1at5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_al5fm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcgue")
+}],
+"loop": true,
+"name": &"closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpqpx")
+}],
+"loop": true,
+"name": &"open ",
+"speed": 5.0
+}]
+
+[node name="Inbox" type="Node2D"]
+position = Vector2(20, 15)
+script = ExtResource("1_yp867")
+
+[node name="InboxSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(4, -15)
+rotation = 0.20944
+sprite_frames = SubResource("SpriteFrames_al5fm")
+animation = &"open "

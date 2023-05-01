@@ -32,4 +32,5 @@ func _process(delta):
 	modulate = Color.WHITE.lerp(Color.html("#FFFFFF33"), clampf(progress, 0.0, 1.0))
 
 func fade():
-	fading = true
+	pass
+	#fading = true

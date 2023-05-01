@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bwsr3hbg0c274"]
+[gd_scene load_steps=9 format=3 uid="uid://bwsr3hbg0c274"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_n5o1a"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_0l0fi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_eyojh"]
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_76rqo"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_jp178"]
+[ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="8_7vdqd"]
 
 [node name="LevelS1" type="Node"]
 
@@ -22,15 +23,15 @@ inbox = NodePath("../../Inbox")
 position = Vector2(119, 171)
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-offset_left = 139.0
-offset_top = 23.0
-offset_right = 782.0
-offset_bottom = 203.0
+offset_left = 119.0
+offset_top = 20.0
+offset_right = 762.0
+offset_bottom = 200.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "[center]You can slide on slopes using the S key.
+text = "[center]You can [color=yellow]slide on slopes[/color] using the [color=yellow]S[/color] key.
 
 Sliding increases your jump speed. You can reach this mailbox without throwing the parcel.[/center]"
 scroll_active = false
@@ -49,3 +50,6 @@ position = Vector2(449, 296)
 
 [node name="Inbox" parent="." instance=ExtResource("7_jp178")]
 position = Vector2(783, 354)
+
+[node name="Mima" parent="." instance=ExtResource("8_7vdqd")]
+position = Vector2(172, 177)

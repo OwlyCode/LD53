@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cee7sflyehtb1" path="res://art/bark.ogg" id="4_2cond"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6pfm3"]
-radius = 15.0
+radius = 14.0
 height = 40.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u0wei"]
@@ -199,8 +199,7 @@ shape = SubResource("CapsuleShape2D_6pfm3")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ffsnu")
-animation = &"happy"
-frame_progress = 0.442691
+animation = &"idle_right"
 
 [node name="DetectionZone" type="Area2D" parent="."]
 collision_layer = 0

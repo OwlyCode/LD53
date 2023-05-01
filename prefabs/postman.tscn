@@ -8,6 +8,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c77hw"]
 radius = 7.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4v7ev"]
 atlas = ExtResource("2_wrm1m")
@@ -233,7 +234,6 @@ colors = PackedColorArray(0.7, 0.7, 0.7, 1, 0.666667, 0.666667, 0.666667, 1, 1, 
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aj0ov"]
 radius = 13.0
-height = 36.0
 
 [node name="Postman" type="CharacterBody2D"]
 position = Vector2(292, 227)

@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://dugti1vv851di"]
+
+[ext_resource type="Texture2D" uid="uid://d3d0fkjg1nune" path="res://art/mima.png" id="1_muj5w"]
+[ext_resource type="Script" path="res://prefabs/mima.gd" id="2_hwtti"]
+[ext_resource type="Texture2D" uid="uid://8j2jejxjl1u" path="res://art/decoration.png" id="3_n07fx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu4l4"]
+atlas = ExtResource("1_muj5w")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eub6o"]
+atlas = ExtResource("1_muj5w")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbt84"]
+atlas = ExtResource("1_muj5w")
+region = Rect2(64, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bykpx"]
+atlas = ExtResource("1_muj5w")
+region = Rect2(96, 0, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fh68l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu4l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eub6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbt84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bykpx")
+}],
+"loop": true,
+"name": &"talking",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnpv5"]
+atlas = ExtResource("3_n07fx")
+region = Rect2(168, 1, 16, 31)
+
+[node name="Mima" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_fh68l")
+animation = &"talking"
+frame_progress = 0.268422
+script = ExtResource("2_hwtti")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(14, 0)
+texture = SubResource("AtlasTexture_bnpv5")

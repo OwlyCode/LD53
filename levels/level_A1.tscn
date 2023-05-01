@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://finroad8pc5o"]
+[gd_scene load_steps=9 format=3 uid="uid://finroad8pc5o"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_d7sbx"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_05r7o"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="5_3obnq"]
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_2b5iy"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_vqwya"]
+[ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="8_skh71"]
 
 [node name="Level1" type="Node"]
 
@@ -22,19 +23,19 @@ inbox = NodePath("../../Inbox")
 position = Vector2(146, 336)
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-offset_left = 129.0
-offset_top = 134.0
-offset_right = 772.0
-offset_bottom = 241.0
+offset_left = 143.0
+offset_top = 374.0
+offset_right = 786.0
+offset_bottom = 605.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "[center]Use Z and D to move left and right.[/center]
+text = "[center]I used to be a delivery woman like you, then I took a parcel in the knee. Delivery is about going [wave]real fast[/wave]. Listen to my advices![/center]
 
-[center]Bring the parcel to the green light to complete the level.[/center]"
+[center]Use [color=yellow]Z[/color] and [color=yellow]D[/color] to [color=yellow]move[/color]. Then bring the parcel to the [color=green]green light near the inbox[/color] to [color=green]complete the level[/color].[/center]"
 scroll_active = false
-autowrap_mode = 0
+autowrap_mode = 2
 script = ExtResource("4_8kflc")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_3obnq")]
@@ -49,3 +50,6 @@ position = Vector2(449, 296)
 
 [node name="Inbox" parent="." instance=ExtResource("7_vqwya")]
 position = Vector2(782, 352)
+
+[node name="Mima2" parent="." instance=ExtResource("8_skh71")]
+position = Vector2(429, 337)

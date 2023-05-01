@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://svwi6lguvlyy"]
+[gd_scene load_steps=10 format=3 uid="uid://svwi6lguvlyy"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_w81df"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_gt85i"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="6_5qe5n"]
 [ext_resource type="PackedScene" uid="uid://dtsnp7klunf85" path="res://prefabs/dog.tscn" id="7_84138"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="8_xq7vd"]
+[ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="9_7kryk"]
 
 [node name="LevelD1" type="Node"]
 
@@ -23,17 +24,19 @@ inbox = NodePath("../../Inbox")
 position = Vector2(146, 336)
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-offset_left = 132.0
-offset_top = 152.0
-offset_right = 775.0
-offset_bottom = 259.0
+offset_left = 141.0
+offset_top = 397.0
+offset_right = 784.0
+offset_bottom = 537.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "[center]Dogs are cute but they also want to play with the parcel.[/center]"
+text = "[center][color=red]Dogs[/color] are cute but they are also little devils that want to [wave][color=red]chew[/color][/wave] the parcel.[/center]
+
+[center]Please don't let them waste your time.[/center]"
 scroll_active = false
-autowrap_mode = 0
+autowrap_mode = 2
 script = ExtResource("4_o57f4")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_73bmj")]
@@ -53,3 +56,6 @@ flip = true
 
 [node name="Inbox" parent="." instance=ExtResource("8_xq7vd")]
 position = Vector2(774, 354)
+
+[node name="Mima" parent="." instance=ExtResource("9_7kryk")]
+position = Vector2(271, 337)

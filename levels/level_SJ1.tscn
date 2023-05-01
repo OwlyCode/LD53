@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch02nwjmscngs"]
+[gd_scene load_steps=11 format=3 uid="uid://ch02nwjmscngs"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_q06k1"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_n66jm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://wbr5opqbesl8" path="res://prefabs/door.tscn" id="7_5jjji"]
 [ext_resource type="PackedScene" uid="uid://d3jqrkfuye7wi" path="res://prefabs/pressure_plate.tscn" id="8_mthtb"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="9_qob6n"]
+[ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="10_rullb"]
 
 [node name="LevelS1" type="Node"]
 
@@ -25,15 +26,15 @@ inbox = NodePath("../../Inbox")
 position = Vector2(131, 336)
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-offset_left = 139.0
-offset_top = 23.0
-offset_right = 782.0
-offset_bottom = 203.0
+offset_left = 114.0
+offset_top = 416.0
+offset_right = 829.0
+offset_bottom = 707.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "[center]Throwing the parcel at the ground can increase your jump height.
+text = "[center][color=yellow]Throwing[/color] the parcel at the ground can [color=yellow]increase your jump height[/color].
 
 Try aiming, jumping and then throwing the parcel beneath you to do a super jump! [/center]"
 scroll_active = false
@@ -60,3 +61,6 @@ target = Array[NodePath]([NodePath("../Door")])
 
 [node name="Inbox" parent="." instance=ExtResource("9_qob6n")]
 position = Vector2(625, 352)
+
+[node name="Mima" parent="." instance=ExtResource("10_rullb")]
+position = Vector2(280, 337)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bil63hf0lbabt"]
+[gd_scene load_steps=9 format=3 uid="uid://bil63hf0lbabt"]
 
 [ext_resource type="TileSet" uid="uid://fpa5jwqyov7l" path="res://tileset.tres" id="1_e2dwg"]
 [ext_resource type="PackedScene" uid="uid://b201qcid7rcgl" path="res://prefabs/goal.tscn" id="2_xgx8p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d0bd8tknwm6dt" path="res://art/back.png" id="5_0tk53"]
 [ext_resource type="PackedScene" uid="uid://b3wm0lo1lun00" path="res://prefabs/generic_ui.tscn" id="6_73fju"]
 [ext_resource type="PackedScene" uid="uid://88df78ouaf4p" path="res://prefabs/inbox.tscn" id="7_lqyk4"]
+[ext_resource type="PackedScene" uid="uid://dugti1vv851di" path="res://prefabs/mima.tscn" id="8_fjvrp"]
 
 [node name="Level3" type="Node"]
 
@@ -27,17 +28,17 @@ position = Vector2(146, 336)
 position = Vector2(449, 296)
 
 [node name="Tutorial" type="RichTextLabel" parent="."]
-offset_left = 148.0
-offset_top = 57.0
-offset_right = 624.0
-offset_bottom = 323.0
+offset_left = 136.0
+offset_top = 398.0
+offset_right = 786.0
+offset_bottom = 664.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "[center]You can throw the parcel to unreachable spots to complete levels! Who cares if it's broken?[/center]
+text = "[center]You can [color=yellow]throw[/color] the parcel to unreachable spots to complete levels! Who cares if it's broken?[/center]
 
-[center]Press the left mouse button to aim, release to shoot![/center]
+[center]Press the [color=yellow]left mouse button[/color] to aim, release to [wave]shoot[/wave]![/center]
 
 "
 scroll_active = false
@@ -53,3 +54,6 @@ texture = ExtResource("5_0tk53")
 
 [node name="Inbox" parent="." instance=ExtResource("7_lqyk4")]
 position = Vector2(732, 127)
+
+[node name="Mima" parent="." instance=ExtResource("8_fjvrp")]
+position = Vector2(446, 273)

@@ -1,31 +1,30 @@
 TODO
+- making levels
+    - tower jump too hard
+
 - UI
     - audio control
+    - main menu
+    - level selection
+        - display stars and unkocked levels
+    - credits
 
-- making levels
-- menu
-- place assets
-
+- Better look for levels
+    - City theme
+    - Sewages
+    - sitting dog
 
 - slide sound
 - door sound
 - button sound
-
-- sitting dog
-
-- main menu
-- level selection
-    - display stars and game state
-- credits
-
-- Dog time penalty ?
+- shoot parcel sound
 
 Bugs
+- Dog catch while aiming
+- Jump at tower level is too hard
 - Sliding issue
 - Bug if two dogs hunting the same parcel at the same time
-- Jump at tower level is too hard
 - Mouse focus issues
-- Glitch throw throught walls (level 2)
 - Resolution issue, again (1920 x 1080)
 - Slide collision box
 

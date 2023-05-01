@@ -27,7 +27,7 @@ var max_inertia = 400
 var ended = false
 
 var caught = false
-var rethrow_timeout = 1.0
+var rethrow_timeout = 3.0
 var happy = false
 
 var shoot_power = 600

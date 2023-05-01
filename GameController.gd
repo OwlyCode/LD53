@@ -1,7 +1,7 @@
 extends Node2D
 
 var levels = [
-	preload("res://levels/level_SJ1.tscn"), # Debug
+	#preload("res://levels/level_SJ1.tscn"), # Debug
 
 	# Tutorial x3 (OK)
 	preload("res://levels/level_A1.tscn"),

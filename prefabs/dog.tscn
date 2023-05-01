@@ -200,7 +200,7 @@ shape = SubResource("CapsuleShape2D_6pfm3")
 z_index = 1
 sprite_frames = SubResource("SpriteFrames_ffsnu")
 animation = &"happy"
-frame_progress = 0.0347856
+frame_progress = 0.442691
 
 [node name="DetectionZone" type="Area2D" parent="."]
 collision_layer = 0

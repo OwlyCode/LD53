@@ -26,7 +26,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_xpqpx")
 }],
 "loop": true,
-"name": &"open ",
+"name": &"open",
 "speed": 5.0
 }]
 
@@ -38,4 +38,4 @@ script = ExtResource("1_yp867")
 position = Vector2(4, -15)
 rotation = 0.20944
 sprite_frames = SubResource("SpriteFrames_al5fm")
-animation = &"open "
+animation = &"open"

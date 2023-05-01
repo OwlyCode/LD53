@@ -1,22 +1,14 @@
 TODO
 - UI
-    - audio control
     - credits
     - last level sends to credits
+    - audio control
 
-- dog sleep
-- dog bark
-
-- dog sound
-- throw sound
 - slide sound
-- door sound
-- button sound
 - shoot parcel sound
 
 Bugs
 - Door mechanics not introduced well
-- Slide collision box
 - Resolution issue, again (1920 x 1080)
 
 The team

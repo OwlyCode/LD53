@@ -16,7 +16,7 @@ func _ready():
 func refresh():
 	stars = GameState.star_memory[level]
 
-	if level > GameState.current_level:
+	if level > GameState.unlocked_level:
 		disabled = true
 
 	if stars == 3:

@@ -1,11 +1,14 @@
 extends Node
 
 var current_level = 5
+var unlocked_level = 8
+
 var max_levels = 20
 
 var star_memory = []
 var current_scene = null
 
+var selector = 	preload("res://level_select.tscn")
 
 var levels = [
 	# Debug
@@ -56,6 +59,14 @@ func set_level(level):
 	loading = true
 	current_level = level
 	GameState.goto_scene(levels[current_level])
+
+func level_select():
+	goto_scene(selector)
+
+func win_level(stars):
+	star_memory[current_level] = max(star_memory[current_level], stars)
+	if current_level == unlocked_level:
+		unlocked_level += 1
 
 func next_level():
 	if current_level < max_levels:

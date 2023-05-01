@@ -67,15 +67,21 @@ func end_level():
 		get_node("Score/Star1").visible = true
 		get_node("Score/StarSound1").play()
 
+		var stars = 1
+
 		if time < star2_time:
+			stars += 1
 			await get_tree().create_timer(0.3).timeout
 			get_node("Score/Star2").visible = true
 			get_node("Score/StarSound2").play()
 
 		if time < star3_time:
+			stars += 1
 			await get_tree().create_timer(0.3).timeout
 			get_node("Score/Star3").visible = true
 			get_node("Score/StarSound3").play()
+
+		GameState.win_level(stars)
 
 		await get_tree().create_timer(0.3).timeout
 		$Buttons.visible = true
@@ -123,3 +129,10 @@ func camera_shake(intensity = 1, duration = 1):
 		await get_tree().create_timer(0.1).timeout
 		camera.position.x -= intensity
 		await get_tree().create_timer(0.1).timeout
+
+
+func _on_level_select_2_button_up():
+	GameState.level_select()
+
+func _on_level_selection_button_up():
+	GameState.level_select()

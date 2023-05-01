@@ -100,15 +100,31 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -129.0
-offset_top = -48.0
+offset_left = -101.0
+offset_top = -38.0
 offset_right = -7.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("2_2lwej")
 theme_override_font_sizes/font_size = 15
-text = "Restart level (R)"
+text = "Restart (R)"
+
+[node name="LevelSelect2" type="Button" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -38.0
+offset_right = -109.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_2lwej")
+theme_override_font_sizes/font_size = 15
+text = "Level select (M)"
 
 [node name="Score" type="HBoxContainer" parent="."]
 anchors_preset = 8
@@ -167,15 +183,20 @@ grow_vertical = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Retry" type="Button" parent="Buttons"]
-layout_mode = 2
-theme = ExtResource("2_2lwej")
-text = "Retry"
-
 [node name="NextLevel" type="Button" parent="Buttons"]
 layout_mode = 2
 theme = ExtResource("2_2lwej")
 text = "Next level"
+
+[node name="Level selection" type="Button" parent="Buttons"]
+layout_mode = 2
+theme = ExtResource("2_2lwej")
+text = "Level select"
+
+[node name="Retry" type="Button" parent="Buttons"]
+layout_mode = 2
+theme = ExtResource("2_2lwej")
+text = "Retry"
 
 [node name="Goals" type="VBoxContainer" parent="."]
 offset_left = 51.0
@@ -232,5 +253,7 @@ texture = SubResource("AtlasTexture_y08xh")
 stretch_mode = 3
 
 [connection signal="button_up" from="Restart" to="." method="_on_restart_button_up"]
-[connection signal="button_up" from="Buttons/Retry" to="." method="_on_retry_button_up"]
+[connection signal="button_up" from="LevelSelect2" to="." method="_on_level_select_2_button_up"]
 [connection signal="button_up" from="Buttons/NextLevel" to="." method="_on_next_level_button_up"]
+[connection signal="button_up" from="Buttons/Level selection" to="." method="_on_level_selection_button_up"]
+[connection signal="button_up" from="Buttons/Retry" to="." method="_on_retry_button_up"]

@@ -32,8 +32,7 @@ position = Vector2(448, 487)
 texture = ExtResource("4_1k411")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_1ish8")]
-star2_time = 18.0
-star3_time = 10.5
+star2_time = 7.0
 
 [node name="Dog" parent="." instance=ExtResource("8_jidwg")]
 position = Vector2(513, 77)

@@ -44,6 +44,8 @@ autowrap_mode = 2
 script = ExtResource("4_y140x")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_eyojh")]
+star2_time = 3.0
+star3_time = 2.0
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1

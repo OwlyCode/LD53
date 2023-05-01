@@ -82,7 +82,11 @@ func _physics_process(delta):
 	# if direction:
 	# 	velocity.x = direction * SPEED
 	# else:
-	if happy:
+	if ended:
+		inertia = 0
+		velocity.x = 0
+		$AnimatedSprite2D.play("happy")
+	elif happy:
 		$AnimatedSprite2D.play("happy")
 	elif (idle and not angry and not caught):
 		if flip:

@@ -25,6 +25,8 @@ inbox = NodePath("../../Inbox")
 position = Vector2(740, 382)
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("4_yqv5j")]
+star2_time = 5.0
+star3_time = 4.0
 
 [node name="PressurePlate" parent="." instance=ExtResource("5_l03gh")]
 

@@ -34,8 +34,8 @@ position = Vector2(448, 620)
 texture = ExtResource("4_6728o")
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("5_ovi85")]
-star2_time = 10.0
-star3_time = 4.5
+star2_time = 6.0
+star3_time = 4.0
 
 [node name="Goals" parent="GenericUI" index="8"]
 offset_left = 222.0

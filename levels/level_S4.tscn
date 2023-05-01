@@ -40,6 +40,8 @@ position = Vector2(-7, 79)
 position = Vector2(298, 353)
 
 [node name="GenericUI" parent="." groups=["effects"] instance=ExtResource("4_j1xxk")]
+star2_time = 6.0
+star3_time = 4.0
 
 [node name="Dog" parent="." instance=ExtResource("5_e24sb")]
 position = Vector2(269, 240)

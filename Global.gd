@@ -1,7 +1,7 @@
 extends Node
 
 var current_level = 0
-var unlocked_level = 20
+var unlocked_level = 0
 
 var star_memory = []
 var current_scene = null

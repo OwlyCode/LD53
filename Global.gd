@@ -10,6 +10,8 @@ var m_menu = preload("res://main_menu.tscn")
 var selector = preload("res://level_select.tscn")
 var credits_scene = preload("res://credits.tscn")
 
+var keyboard_mode = true
+
 var levels = [
 	# Tutorial
 	preload("res://levels/level_A1.tscn"),
@@ -140,3 +142,9 @@ func _deferred_goto_scene(s):
 
 func music_pitch(p):
 	game_music.pitch_scale = p
+
+func _unhandled_input(event):
+	if (event is InputEventJoypadButton) or (event is InputEventJoypadMotion):
+		keyboard_mode = false
+	else:
+		keyboard_mode = true

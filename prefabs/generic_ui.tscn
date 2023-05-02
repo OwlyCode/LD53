@@ -120,7 +120,7 @@ grow_horizontal = 0
 grow_vertical = 0
 theme = ExtResource("2_2lwej")
 theme_override_font_sizes/font_size = 15
-text = "Level select (M)"
+text = "Level select (;)"
 
 [node name="Score" type="HBoxContainer" parent="."]
 anchors_preset = 8

@@ -1,5 +1,6 @@
 extends RichTextLabel
 
+@export var keyboard_mode = true
 
 var fading = false
 var progress = 0
@@ -11,6 +12,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if keyboard_mode:
+		visible = GameState.keyboard_mode
+	else:
+		visible = not GameState.keyboard_mode
+
 	if fading:
 		progress += delta * 2.0
 

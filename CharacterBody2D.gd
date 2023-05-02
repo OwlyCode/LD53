@@ -90,12 +90,22 @@ func _physics_process(delta):
 
 	if has_parcel and not ended and Input.is_action_pressed("shoot") and not shoot_canceled:
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
-		update_trajectory(0.005, shoot_direction * shoot_power)
+		if not GameState.keyboard_mode:
+			shoot_direction = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+
+			if shoot_direction.length() < 0.1:
+				shoot_direction = Vector2.RIGHT * 0.5 + Vector2.UP * 0.5
+
 		$Line2D.visible = true
-		shoot_power = initial_shoot_power + get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
-		shoot_power = clampf(shoot_power, 0 , 800)
+		if GameState.keyboard_mode:
+			shoot_power = initial_shoot_power + get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
+			shoot_power = clampf(shoot_power, 0 , 800)
+		else:
+			shoot_power = lerpf(initial_shoot_power, 800, shoot_direction.length())
 		on_first_move()
 		aiming = true
+
+		update_trajectory(0.005, shoot_direction * shoot_power)
 
 	$Line2D.default_color = Color.GREEN.lerp(Color.RED, shoot_power / max_shoot_power)
 
@@ -117,7 +127,13 @@ func _physics_process(delta):
 		get_tree().call_group("dog", "switch_target", x)
 
 		x.transform = transform
+
 		var shoot_direction = (get_global_mouse_position() - transform.get_origin()).normalized()
+		if not GameState.keyboard_mode:
+			shoot_direction = Vector2(Input.get_joy_axis(0, JOY_AXIS_RIGHT_X), Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y))
+			if shoot_direction.length() < 0.1:
+				shoot_direction = Vector2.RIGHT * 0.5 + Vector2.UP * 0.5
+
 		x.linear_velocity = shoot_direction * shoot_power
 		x.angular_velocity = shoot_power / 10.0
 		velocity += - shoot_direction * 350.0

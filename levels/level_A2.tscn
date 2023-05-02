@@ -39,10 +39,26 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
-text = "[center]Use [color=yellow]space[/color] to [color=yellow]jump![/color][/center]"
+text = "[center]Use [color=yellow]space[/color] or [color=yellow]W[/color] to [color=yellow]jump![/color][/center]"
 scroll_active = false
 autowrap_mode = 0
 script = ExtResource("4_7l53w")
+
+[node name="TutorialController" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 118.0
+offset_top = 401.0
+offset_right = 761.0
+offset_bottom = 484.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Use [color=yellow]the A button[/color] to [color=yellow]jump![/color][/center]"
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("4_7l53w")
+keyboard_mode = false
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1

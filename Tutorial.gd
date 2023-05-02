@@ -7,8 +7,21 @@ var progress = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for action in InputMap.get_actions():
+		var keys = []
+		for event in InputMap.action_get_events(action):
 
+			if event is InputEventKey and keyboard_mode:
+				var key_name = OS.get_keycode_string(event.unicode).to_upper()
+
+				if key_name == "":
+					key_name = event.as_text()
+
+				keys.append(key_name)
+
+		if len(keys) > 0:
+			print("%s -> %s" % [action, keys])
+			text = text.replace("__%s__" % action, " or ".join(keys))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

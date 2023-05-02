@@ -39,7 +39,7 @@ theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "[center]I used to be a delivery woman like you, then I took a parcel in the knee. Delivery is about going [wave]real fast[/wave]. Listen to my advices![/center]
 
-[center]Use [color=yellow]A[/color] and [color=yellow]D[/color] to [color=yellow]move[/color]. Then bring the parcel to the [color=green]green light near the inbox[/color] to [color=green]complete the level[/color].[/center]"
+[center]Use [color=yellow]__left__[/color] and [color=yellow]__right__[/color] to [color=yellow]move[/color]. Then bring the parcel to the [color=green]green light near the inbox[/color] to [color=green]complete the level[/color].[/center]"
 scroll_active = false
 autowrap_mode = 2
 script = ExtResource("4_8kflc")

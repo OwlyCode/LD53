@@ -101,7 +101,7 @@ func _physics_process(delta):
 			shoot_power = initial_shoot_power + get_global_mouse_position().distance_squared_to(transform.get_origin()) / 100.0
 			shoot_power = clampf(shoot_power, 0 , 800)
 		else:
-			shoot_power = lerpf(initial_shoot_power, 800, shoot_direction.length())
+			shoot_power = lerpf(initial_shoot_power, 800, Input.get_action_strength("aiming"))
 		on_first_move()
 		aiming = true
 
